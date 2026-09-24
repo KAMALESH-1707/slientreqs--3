@@ -1,0 +1,8 @@
+{
+  "name": "Remix RESQNET RQ-01",
+  "description": "AI Powered Autonomous Disaster Rescue Drone with edge AI survivor detection, LoRa communication, and 3D digital twin visualization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

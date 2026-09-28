@@ -123,7 +123,7 @@
       top: 50%;
       left: 24px;
       transform: translateY(-50%);
-      z-index: 10;
+      z-index: 25;
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -203,6 +203,11 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       padding-bottom: 8px;
     }
+    .panel-tag-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
     .panel-badge {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
@@ -212,6 +217,17 @@
       border: 1px solid rgba(255, 77, 0, 0.35);
       padding: 2px 8px;
       border-radius: 4px;
+    }
+    .panel-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      color: #00f0ff;
+      background: rgba(0, 240, 255, 0.12);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
     }
     .panel-qty {
       font-family: 'JetBrains Mono', monospace;
@@ -225,27 +241,49 @@
     }
     .panel-title {
       font-family: 'Rajdhani', sans-serif;
-      font-size: 19px;
+      font-size: 22px;
       font-weight: 700;
       color: #ffffff;
       line-height: 1.25;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       letter-spacing: 0.5px;
+    }
+    .panel-role-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
     }
     .panel-role-label {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      font-weight: 600;
-      color: #a1a1aa;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #00f0ff;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 3px;
+      letter-spacing: 1.2px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .panel-role-label .pulse-icon {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: #00f0ff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00f0ff;
+      animation: pulseCyan 1.6s infinite ease-in-out;
+    }
+    @keyframes pulseCyan {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.25); }
     }
     .panel-role {
-      font-size: 13px;
-      line-height: 1.5;
-      color: #e4e4e7;
-      margin-bottom: 16px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #f1f5f9;
       font-weight: 400;
     }
     .btn-close-view {
@@ -279,6 +317,110 @@
       stroke: currentColor;
       stroke-width: 2.2;
       fill: none;
+    }
+
+    /* Top Center Interactive Guidance Banner */
+    .interactive-guidance-pill {
+      position: absolute;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 15;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(18, 18, 24, 0.78);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      border-radius: 20px;
+      padding: 6px 16px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      pointer-events: none;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 240, 255, 0.1);
+    }
+    .guide-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00f0ff;
+      box-shadow: 0 0 8px #00f0ff;
+      animation: pulseCyan 1.5s infinite;
+    }
+    .guide-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #e2e8f0;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    /* 3D Screen Pin Anchor */
+    .screen-pin-3d {
+      position: absolute;
+      pointer-events: none;
+      z-index: 18;
+      display: none;
+      transform: translate(-50%, -100%);
+      transition: opacity 0.2s ease;
+    }
+    .screen-pin-3d.visible {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .pin-card {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15, 17, 23, 0.92);
+      border: 1px solid #00f0ff;
+      border-radius: 6px;
+      padding: 4px 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(0, 240, 255, 0.35);
+      margin-bottom: 6px;
+    }
+    .pin-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: #ff5500;
+    }
+    .pin-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+    .pin-marker {
+      position: relative;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pin-ring {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid #00f0ff;
+      border-radius: 50%;
+      animation: pinPing 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    @keyframes pinPing {
+      75%, 100% {
+        transform: scale(2.2);
+        opacity: 0;
+      }
+    }
+    .pin-core {
+      width: 6px;
+      height: 6px;
+      background: #00f0ff;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #00f0ff;
     }
 
     /* Bottom Frosted-Glass Slider Overlay */
@@ -429,6 +571,59 @@
       text-overflow: ellipsis;
     }
 
+    /* 3D Component Interactive Hover Tooltip */
+    .hover-tooltip {
+      position: fixed;
+      pointer-events: none;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(0, 240, 255, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 8px 14px;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 15px rgba(0, 240, 255, 0.2);
+      transform: translate(-50%, -130%);
+      transition: opacity 0.15s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .hover-tooltip.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .tooltip-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #ff5500;
+      background: rgba(255, 77, 0, 0.18);
+      border: 1px solid rgba(255, 77, 0, 0.4);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .tooltip-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .tooltip-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+    .tooltip-hint {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      color: #00f0ff;
+      letter-spacing: 0.3px;
+    }
+
     /* Mobile adjustments */
     @media (max-width: 640px) {
       .brand-overlay { top: 16px; left: 16px; }
@@ -469,18 +664,53 @@
     </button>
   </div>
 
+  <!-- Top Center Interactive Guidance Banner -->
+  <div class="interactive-guidance-pill">
+    <span class="guide-dot"></span>
+    <span class="guide-text">CLICK ANY COMPONENT TO VIEW NAME &amp; USAGE IN THIS PROJECT</span>
+  </div>
+
+  <!-- 3D Component Interactive Hover Tooltip -->
+  <div id="hover-tooltip" class="hover-tooltip">
+    <div id="tt-num" class="tooltip-num">01</div>
+    <div class="tooltip-info">
+      <div id="tt-name" class="tooltip-title">Component Name</div>
+      <div class="tooltip-hint">Click component to inspect Name &amp; Usage</div>
+    </div>
+  </div>
+
+  <!-- 3D Screen Pin Anchor -->
+  <div id="screen-pin-3d" class="screen-pin-3d">
+    <div class="pin-card">
+      <span id="pin-badge" class="pin-badge">[01]</span>
+      <span id="pin-name" class="pin-name">Component Name</span>
+    </div>
+    <div class="pin-marker">
+      <div class="pin-ring"></div>
+      <div class="pin-core"></div>
+    </div>
+  </div>
+
   <!-- Top Right Focused Component Panel -->
   <div id="close-view-panel">
     <div class="panel-header">
-      <span id="panel-badge" class="panel-badge">[01]</span>
+      <div class="panel-tag-group">
+        <span id="panel-badge" class="panel-badge">[01]</span>
+        <span id="panel-category" class="panel-tag">SUBSYSTEM</span>
+      </div>
       <span id="panel-qty" class="panel-qty">Qty: 1</span>
     </div>
     <div id="panel-title" class="panel-title">Component Name</div>
-    <div class="panel-role-label">System Role & Specs</div>
-    <div id="panel-role" class="panel-role">Description role</div>
+    <div class="panel-role-box">
+      <div class="panel-role-label">
+        <span class="pulse-icon"></span>
+        NAME &amp; USAGE IN THIS PROJECT
+      </div>
+      <div id="panel-role" class="panel-role">Description role</div>
+    </div>
     <button id="btn-close-view" class="btn-close-view">
-      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-      <span>Click to Close View</span>
+      <svg viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+      <span>Close &amp; Reset Overview</span>
     </button>
   </div>
 
@@ -510,7 +740,7 @@
         num: '01',
         name: 'Hybrid VTOL Forward-Swept Airframe',
         qty: 'Qty: 1',
-        role: 'Slender aerodynamic fuselage in rescue safety orange (#FF4D00) with aero white canopy, forward-swept wings, and twin split tail fins.',
+        role: 'Streamlined low-profile aerodynamic lifting fuselage in rescue safety orange (#FF4D00) with aero white canopy, forward diagonal box struts, and forward-swept RESCUE wings.',
         target: [0, 0.22, 0.0],
         cam: [1.8, 1.15, 1.7],
         explodedOffset: [0, 0, 0]
@@ -521,8 +751,8 @@
         name: 'VTOL Lift Motors',
         qty: 'Qty: 4',
         role: 'Vertical takeoff, hover and landing. High-torque CNC brushless motors with exposed copper stators and safety orange (#FF4D00) rotor bells.',
-        target: [-1.35, 0.25, -0.22],
-        cam: [-1.0, 0.52, 0.15],
+        target: [-1.34, 0.25, 0.12],
+        cam: [-1.0, 0.52, 0.45],
         explodedOffset: [0, 0.45, 0]
       },
       {
@@ -531,8 +761,8 @@
         name: 'VTOL ESCs',
         qty: 'Qty: 4',
         role: 'Control the four lift motors with ultra-fast FOC telemetry, active braking, and aluminum heatsinks.',
-        target: [-1.25, 0.20, -0.22],
-        cam: [-0.95, 0.40, 0.10],
+        target: [-1.24, 0.20, 0.12],
+        cam: [-0.95, 0.40, 0.40],
         explodedOffset: [0, 0.35, 0]
       },
       {
@@ -541,45 +771,49 @@
         name: 'VTOL Propellers',
         qty: 'Qty: 4',
         role: 'Generate vertical thrust. Rescue safety orange (#FF4D00) blades with crisp white safety hazard tip bands.',
-        target: [-1.35, 0.38, -0.22],
-        cam: [-1.15, 0.60, 0.05],
+        target: [-1.34, 0.38, 0.12],
+        cam: [-1.15, 0.60, 0.35],
         explodedOffset: [0, 0.62, 0]
       },
       {
         id: 'cruise-motor',
         num: '05',
-        name: 'Cruise Motor',
+        name: 'Cruise Pusher Motor',
         qty: 'Qty: 1',
-        role: 'Forward fixed-wing flight. High-efficiency horizontal pusher motor mounted between the twin vertical tail fins.',
-        target: [0, 0.25, -0.75],
-        cam: [0.42, 0.48, -1.15],
-        explodedOffset: [0, 0, -0.4]
+        category: 'PROPULSION',
+        role: 'Forward fixed-wing cruise flight. High-efficiency horizontal brushless pusher motor mounted firmly on the exterior aft edge of the tail bulkhead with exposed copper stator cooling ring.',
+        target: [0, 0.20, -0.92],
+        cam: [0.45, 0.36, -1.35],
+        explodedOffset: [0, 0, -0.45]
       },
       {
         id: 'cruise-esc',
         num: '06',
         name: 'Cruise ESC',
         qty: 'Qty: 1',
+        category: 'PROPULSION',
         role: 'Controls the cruise motor with constant RPM governor and thermal protection.',
-        target: [0, 0.25, -0.55],
-        cam: [0.32, 0.44, -0.80],
+        target: [0, 0.22, -0.70],
+        cam: [0.32, 0.44, -0.95],
         explodedOffset: [0, 0, -0.25]
       },
       {
         id: 'cruise-prop',
         num: '07',
-        name: 'Cruise Propeller',
+        name: 'Cruise Pusher Propeller',
         qty: 'Qty: 1',
-        role: 'Forward propulsion. Tuned 2-blade pusher propeller with rescue safety orange (#FF4D00) blades and white tips.',
-        target: [0, 0.25, -0.85],
-        cam: [0.38, 0.42, -1.25],
-        explodedOffset: [0, 0, -0.6]
+        category: 'PROPULSION',
+        role: 'Generates horizontal thrust. Tuned 2-blade pusher propeller spinning in clean air at the rear edge of the tailcone with rescue safety orange blades and white tips.',
+        target: [0, 0.20, -0.98],
+        cam: [0.45, 0.36, -1.45],
+        explodedOffset: [0, 0, -0.75]
       },
       {
         id: 'flight-controller',
         num: '08',
         name: 'Flight Controller / Autopilot',
         qty: 'Qty: 1',
+        category: 'AVIONICS',
         role: 'Stabilization, navigation and VTOL/plane transition modes with redundant sensors.',
         target: [0, 0.28, 0.05],
         cam: [0.30, 0.55, 0.25],
@@ -588,22 +822,24 @@
       {
         id: 'gps-compass',
         num: '09',
-        name: 'GPS/GNSS + Compass',
+        name: 'Flush GPS/GNSS + Compass Module',
         qty: 'Qty: 1',
-        role: 'Position and heading mast mounted on dorsal spine to isolate magnetic interference.',
-        target: [0, 0.42, -0.25],
-        cam: [0.26, 0.62, -0.10],
-        explodedOffset: [0, 0.68, 0]
+        category: 'NAVIGATION',
+        role: 'Multi-constellation GPS/Galileo/BeiDou GNSS receiver with low-profile aerodynamic flush patch antenna on fuselage spine.',
+        target: [0, 0.25, -0.25],
+        cam: [0.35, 0.52, -0.15],
+        explodedOffset: [0, 0.45, 0]
       },
       {
         id: 'airspeed-pitot',
         num: '10',
         name: 'Airspeed Sensor + Pitot Tube',
         qty: 'Qty: 1',
-        role: 'Fixed-wing airspeed and transition control with dynamic differential ram pressure probe.',
-        target: [0, 0.22, 1.40],
-        cam: [0.28, 0.35, 1.65],
-        explodedOffset: [0, 0, 0.35]
+        category: 'AVIONICS & SENSORS',
+        role: 'Dynamic airspeed and transition calibration with stainless steel differential pressure probe anchored directly into the upper nose canopy deck with zero gap.',
+        target: [0, 0.258, 1.15],
+        cam: [0.26, 0.32, 1.45],
+        explodedOffset: [0, 0.25, 0.25]
       },
       {
         id: 'barometer',
@@ -708,11 +944,12 @@
       {
         id: 'rgb-camera',
         num: '21',
-        name: 'RGB Camera',
+        name: '4K Optical RGB Camera',
         qty: 'Qty: 1',
-        role: 'Normal visual imagery and survivor detection with 4K UHD stabilized forward sensor in nose.',
-        target: [0, 0.16, 1.32],
-        cam: [0.22, 0.25, 1.60],
+        category: 'OPTICAL SENSORS',
+        role: 'High-resolution daytime survivor search and aerial reconnaissance. 4K UHD stabilized optical sensor nested directly into the aerodynamic forward nose cone socket of the drone body with zero gap.',
+        target: [0, 0.20, 1.24],
+        cam: [0.22, 0.25, 1.55],
         explodedOffset: [0, 0, 0.55]
       },
       {
@@ -720,9 +957,10 @@
         num: '22',
         name: '256×192 LWIR Thermal Camera',
         qty: 'Qty: 1',
-        role: 'Human heat-signature detection through smoke, darkness and disaster debris.',
-        target: [0.038, 0.16, 1.32],
-        cam: [0.26, 0.25, 1.60],
+        category: 'THERMAL SENSORS',
+        role: 'Human body heat-signature detection through smoke, darkness, dust and disaster debris. Integrated alongside 4K optical sensor inside the nose cone housing with zero gap.',
+        target: [0.028, 0.21, 1.24],
+        cam: [0.22, 0.25, 1.55],
         explodedOffset: [0, 0, 0.55]
       },
       {
@@ -873,11 +1111,11 @@
     }
     const orangeWeaveMap = createOrangeWeaveTexture();
 
-    // Lighting (Studio key + balanced soft fill + white rim)
-    const ambientLight = new THREE.AmbientLight('#ffffff', 1.0);
+    // Lighting (Studio key + balanced soft fill + white rim - calibrated to prevent washing out orange)
+    const ambientLight = new THREE.AmbientLight('#ffffff', 0.9);
     scene.add(ambientLight);
 
-    const keyLight = new THREE.DirectionalLight('#ffffff', 2.2);
+    const keyLight = new THREE.DirectionalLight('#ffffff', 1.6);
     keyLight.position.set(5, 7, 5);
     keyLight.castShadow = true;
     keyLight.shadow.mapSize.width = 2048;
@@ -885,11 +1123,11 @@
     keyLight.shadow.bias = -0.0003;
     scene.add(keyLight);
 
-    const fillLight = new THREE.DirectionalLight('#f0f4f8', 1.3);
+    const fillLight = new THREE.DirectionalLight('#f0f4f8', 1.0);
     fillLight.position.set(-5, 4, -4);
     scene.add(fillLight);
 
-    const rimLight = new THREE.DirectionalLight('#ffffff', 1.2);
+    const rimLight = new THREE.DirectionalLight('#ffffff', 0.9);
     rimLight.position.set(0, -1, 4);
     scene.add(rimLight);
 
@@ -928,7 +1166,7 @@
       droneGroup.name = 'SILENTRESQ_DRONE_MODEL';
 
       // 1. HIGH-FIDELITY PBR MATERIALS SETUP
-      // Full Rescue Safety Orange (#FF4D00) with subtle composite weave depth
+      // Full Rescue Safety Orange (#FF4D00) with subtle composite weave depth for solid wings, struts, props
       const droneOrangeMat = new THREE.MeshStandardMaterial({
         color: 0xff4d00,
         map: orangeWeaveMap,
@@ -937,12 +1175,42 @@
         envMapIntensity: 1.35
       });
 
-      // Crisp Satin Pure White for Canopy, Wing Panels, and Safety Tip Bands
+      // Semi-Transparent Rescue Safety Orange specifically for the Middle Main Drone Fuselage Pod
+      // Provides the sleek translucent look revealing internal avionics (Jetson Orin Nano, battery, flight controller, busbars)
+      const translucentFuselageOrangeMat = new THREE.MeshPhysicalMaterial({
+        color: 0xff4d00,
+        map: orangeWeaveMap,
+        roughness: 0.22,
+        metalness: 0.15,
+        transmission: 0.60,
+        thickness: 0.08,
+        ior: 1.48,
+        transparent: true,
+        opacity: 0.62,
+        depthWrite: false,
+        side: THREE.DoubleSide
+      });
+
+      // Crisp Satin Pure White for Solid Wing Panels, Booms, and Safety Tip Bands
       const panelWhiteMat = new THREE.MeshStandardMaterial({
         color: 0xfcfdfe,
         roughness: 0.20,
         metalness: 0.10,
         envMapIntensity: 1.25
+      });
+
+      // Semi-Transparent Aero White Canopy Shell (Middle Main Body Deck)
+      const translucentCanopyWhiteMat = new THREE.MeshPhysicalMaterial({
+        color: 0xfcfdfe,
+        roughness: 0.18,
+        metalness: 0.08,
+        transmission: 0.58,
+        thickness: 0.08,
+        ior: 1.48,
+        transparent: true,
+        opacity: 0.58,
+        depthWrite: false,
+        side: THREE.DoubleSide
       });
 
       // Luminous Pure White LED Light Lines & Canopy Perimeter Trim
@@ -1010,7 +1278,7 @@
         envMapIntensity: 1.4
       });
 
-      // Canvas-drawn crisp SILENTRESQ decal texture with winged 'S' icon in Rescue Orange (#FF4D00)
+      // Canvas-drawn high-fidelity RESCUE decal texture matching reference photo
       function createDecalTexture() {
         const c = document.createElement('canvas');
         c.width = 1024;
@@ -1018,28 +1286,51 @@
         const ctx = c.getContext('2d');
         ctx.clearRect(0, 0, 1024, 256);
 
-        // Winged S Emblem in #FF4D00
+        // Circular Rescue Shield Emblem
+        ctx.save();
+        ctx.translate(140, 128);
+
+        ctx.strokeStyle = '#1a1c22';
+        ctx.lineWidth = 10;
+        ctx.beginPath();
+        ctx.arc(0, 0, 72, 0, Math.PI * 2);
+        ctx.stroke();
+
         ctx.strokeStyle = '#ff4d00';
-        ctx.lineWidth = 16;
+        ctx.lineWidth = 5;
         ctx.beginPath();
-        ctx.arc(140, 128, 55, Math.PI * 0.25, Math.PI * 1.75, false);
+        ctx.arc(0, 0, 60, 0, Math.PI * 2);
         ctx.stroke();
 
+        // Stylized rescue wings inside crest
+        ctx.fillStyle = '#1a1c22';
         ctx.beginPath();
-        ctx.arc(170, 128, 55, Math.PI * 1.25, Math.PI * 0.75, false);
-        ctx.stroke();
-
-        ctx.fillStyle = '#ff4d00';
-        ctx.beginPath();
-        ctx.arc(155, 128, 22, 0, Math.PI * 2);
+        ctx.moveTo(-48, -4);
+        ctx.quadraticCurveTo(-18, -36, 0, -12);
+        ctx.quadraticCurveTo(18, -36, 48, -4);
+        ctx.quadraticCurveTo(18, 22, 0, 48);
+        ctx.quadraticCurveTo(-18, 22, -48, -4);
         ctx.fill();
 
-        // SILENTRESQ Brand Typography in Crisp #FF4D00
+        // Safety Orange core rescue cross
         ctx.fillStyle = '#ff4d00';
-        ctx.font = '900 84px "Space Grotesk", "Rajdhani", sans-serif';
+        ctx.fillRect(-7, -22, 14, 44);
+        ctx.fillRect(-22, -7, 44, 14);
+        ctx.restore();
+
+        // "RESCUE" bold futuristic military stencil typography
+        ctx.fillStyle = '#1a1c22';
+        ctx.font = '900 112px "Space Grotesk", "Rajdhani", sans-serif';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'middle';
-        ctx.fillText('SILENTRESQ', 260, 128);
+        ctx.letterSpacing = '14px';
+        ctx.fillText('RESCUE', 255, 122);
+
+        // Safety Orange technical baseline indicator
+        ctx.fillStyle = '#ff4d00';
+        ctx.fillRect(260, 186, 520, 9);
+        ctx.fillRect(795, 186, 16, 9);
+        ctx.fillRect(820, 186, 16, 9);
 
         const tex = new THREE.CanvasTexture(c);
         tex.needsUpdate = true;
@@ -1053,111 +1344,98 @@
       
       // -----------------------------------------------------------------------
       // [01] MAIN FUSELAGE & AIRFRAME
-      // Matte carbon body, pure white top canopy, dorsal electric blue light channel,
-      // and twin split vertical tail fins
+      // Rescue Safety Orange (#FF4D00) carbon body, satin white top canopy,
+      // signature forward aerodynamic chines, and underside landing keel
       // -----------------------------------------------------------------------
       const airframeGroup = new THREE.Group();
       airframeGroup.name = 'Airframe_Fuselage_Wings';
+      airframeGroup.userData.compId = 'airframe';
 
       // 1. Sleek Aerodynamic Lower Fuselage Pod (Smooth Lifting Body)
+      // Profile points swept from flat tail bulkhead (-0.86) forward to camera socket (+1.24)
       const fuselagePoints = [];
-      fuselagePoints.push(new THREE.Vector2(0.001, 1.25));   // Nose chine
-      fuselagePoints.push(new THREE.Vector2(0.065, 1.20));   // Front camera fairing
-      fuselagePoints.push(new THREE.Vector2(0.105, 0.95));   // Forward deck shoulder
-      fuselagePoints.push(new THREE.Vector2(0.128, 0.55));   // Forward strut junction
-      fuselagePoints.push(new THREE.Vector2(0.135, 0.15));   // Maximum cabin breadth
-      fuselagePoints.push(new THREE.Vector2(0.132, -0.20));  // Mid fuselage
+      fuselagePoints.push(new THREE.Vector2(0.048, -0.86));  // Flat Aft Tail Bulkhead Mount Collar (Z = -0.86)
+      fuselagePoints.push(new THREE.Vector2(0.072, -0.78));  // Tailcone taper
       fuselagePoints.push(new THREE.Vector2(0.105, -0.55));  // Aft wing root transition
-      fuselagePoints.push(new THREE.Vector2(0.075, -0.85));  // Tail taper
-      fuselagePoints.push(new THREE.Vector2(0.001, -0.92));  // Tail center point
+      fuselagePoints.push(new THREE.Vector2(0.132, -0.20));  // Mid fuselage
+      fuselagePoints.push(new THREE.Vector2(0.138, 0.15));   // Maximum cabin breadth
+      fuselagePoints.push(new THREE.Vector2(0.130, 0.58));   // Forward strut junction
+      fuselagePoints.push(new THREE.Vector2(0.105, 0.95));   // Forward deck shoulder
+      fuselagePoints.push(new THREE.Vector2(0.082, 1.15));   // Forward nose taper
+      fuselagePoints.push(new THREE.Vector2(0.062, 1.22));   // Camera socket transition
+      fuselagePoints.push(new THREE.Vector2(0.052, 1.24));   // Nose socket bezel rim (Z = +1.24)
+      fuselagePoints.push(new THREE.Vector2(0.001, 1.24));   // Forward bulkhead cap
 
       const fuselageGeom = new THREE.LatheGeometry(fuselagePoints, 36);
-      fuselageGeom.rotateX(-Math.PI / 2);
+      fuselageGeom.rotateX(Math.PI / 2);
       fuselageGeom.scale(1.18, 0.72, 1.0);
+      fuselageGeom.computeVertexNormals();
 
-      const lowerHull = new THREE.Mesh(fuselageGeom, droneOrangeMat);
+      const lowerHull = new THREE.Mesh(fuselageGeom, translucentFuselageOrangeMat);
       lowerHull.position.set(0, 0.20, 0);
+      lowerHull.renderOrder = 2; // Renders over internal avionics with transparent blending
       lowerHull.castShadow = true;
       lowerHull.receiveShadow = true;
+      lowerHull.userData.compId = 'airframe';
       airframeGroup.add(lowerHull);
 
-      // 2. Distinctive Pure White Top Canopy Shield (Forward Deck)
+      // 2. Distinctive Translucent Pure White Top Canopy Shield (Forward Deck)
+      // Profile points from mid-deck (0.20) forward to nose (1.24)
       const canopyPoints = [];
-      canopyPoints.push(new THREE.Vector2(0.001, 1.22));
-      canopyPoints.push(new THREE.Vector2(0.058, 1.15));
-      canopyPoints.push(new THREE.Vector2(0.092, 0.85));
-      canopyPoints.push(new THREE.Vector2(0.115, 0.45));
-      canopyPoints.push(new THREE.Vector2(0.098, 0.22));
       canopyPoints.push(new THREE.Vector2(0.001, 0.20));
+      canopyPoints.push(new THREE.Vector2(0.098, 0.22));
+      canopyPoints.push(new THREE.Vector2(0.118, 0.45));
+      canopyPoints.push(new THREE.Vector2(0.095, 0.85));
+      canopyPoints.push(new THREE.Vector2(0.070, 1.15));
+      canopyPoints.push(new THREE.Vector2(0.050, 1.23));
+      canopyPoints.push(new THREE.Vector2(0.001, 1.24));
 
       const canopyGeom = new THREE.LatheGeometry(canopyPoints, 28, 0, Math.PI);
-      canopyGeom.rotateX(-Math.PI / 2);
+      canopyGeom.rotateX(Math.PI / 2);
       canopyGeom.rotateZ(Math.PI / 2);
       canopyGeom.scale(1.16, 0.75, 1.0);
+      canopyGeom.computeVertexNormals();
 
-      const upperCanopy = new THREE.Mesh(canopyGeom, panelWhiteMat);
+      const upperCanopy = new THREE.Mesh(canopyGeom, translucentCanopyWhiteMat);
       upperCanopy.position.set(0, 0.218, 0);
+      upperCanopy.renderOrder = 2; // Renders over internal avionics with transparent blending
       upperCanopy.castShadow = true;
+      upperCanopy.userData.compId = 'airframe';
       airframeGroup.add(upperCanopy);
 
       // 3. Luminous Pure White Canopy Perimeter Accent Light Lines
       [-1, 1].forEach((dir) => {
         const lightStripCurve = new THREE.CatmullRomCurve3([
-          new THREE.Vector3(dir * 0.045, 0.222, 1.18),
+          new THREE.Vector3(dir * 0.045, 0.222, 1.22),
+          new THREE.Vector3(dir * 0.068, 0.230, 1.05),
           new THREE.Vector3(dir * 0.092, 0.235, 0.85),
           new THREE.Vector3(dir * 0.112, 0.240, 0.48),
           new THREE.Vector3(dir * 0.088, 0.230, 0.22)
         ]);
-        const lightStripGeom = new THREE.TubeGeometry(lightStripCurve, 24, 0.0055, 8, false);
+        const lightStripGeom = new THREE.TubeGeometry(lightStripCurve, 28, 0.0055, 8, false);
         const lightStrip = new THREE.Mesh(lightStripGeom, accentWhiteMat);
         airframeGroup.add(lightStrip);
       });
 
-      // 4. Central Dorsal Spine Luminous White LED Light Channel
-      const dorsalSpineCurve = new THREE.CatmullRomCurve3([
-        new THREE.Vector3(0, 0.240, 0.22),
-        new THREE.Vector3(0, 0.245, 0.0),
-        new THREE.Vector3(0, 0.240, -0.25),
-        new THREE.Vector3(0, 0.230, -0.50)
-      ]);
-      const dorsalSpineGeom = new THREE.TubeGeometry(dorsalSpineCurve, 28, 0.0065, 8, false);
-      const dorsalSpine = new THREE.Mesh(dorsalSpineGeom, accentWhiteMat);
-      airframeGroup.add(dorsalSpine);
+      // 4. LOW-PROFILE AERODYNAMIC DORSAL FAIRING STRIP (Flush with fuselage body, zero popup)
+      const spineStripGeom = new THREE.BoxGeometry(0.042, 0.008, 1.05);
+      const spineStripMesh = new THREE.Mesh(spineStripGeom, panelWhiteMat);
+      spineStripMesh.position.set(0, 0.246, -0.25);
+      spineStripMesh.userData.compId = 'airframe';
+      airframeGroup.add(spineStripMesh);
 
-      // Spine channel trough in orange
-      const trough = new THREE.Mesh(new THREE.BoxGeometry(0.024, 0.008, 0.72), droneOrangeMat);
-      trough.position.set(0, 0.232, -0.14);
-      airframeGroup.add(trough);
+      // Sleek flush glowing telemetry LED line along spine
+      const spineLedGeom = new THREE.BoxGeometry(0.012, 0.005, 0.95);
+      const spineLedMesh = new THREE.Mesh(spineLedGeom, accentWhiteMat);
+      spineLedMesh.position.set(0, 0.251, -0.25);
+      spineLedMesh.userData.compId = 'airframe';
+      airframeGroup.add(spineLedMesh);
 
-      // 5. Twin Vertical Split Tail Fins (Two parallel vertical rudders at the rear)
-      const finShape = new THREE.Shape();
-      finShape.moveTo(0, 0);
-      finShape.lineTo(0.68, 0);
-      finShape.lineTo(0.62, 0.32);
-      finShape.lineTo(0.18, 0.32);
-      finShape.lineTo(0.04, 0.05);
-      finShape.closePath();
-
-      const finGeom = new THREE.ExtrudeGeometry(finShape, { depth: 0.016, bevelEnabled: true, bevelSize: 0.003, bevelThickness: 0.003 });
-
-      [-0.085, 0.085].forEach((xOffset) => {
-        const finMesh = new THREE.Mesh(finGeom, droneOrangeMat);
-        finMesh.position.set(xOffset - 0.008, 0.22, -1.14);
-        finMesh.rotation.y = Math.PI / 2;
-        finMesh.castShadow = true;
-        airframeGroup.add(finMesh);
-
-        // Thin white vertical accent indicator at top of each fin
-        const finLight = new THREE.Mesh(new THREE.BoxGeometry(0.018, 0.008, 0.38), accentWhiteMat);
-        finLight.position.set(xOffset, 0.53, -0.80);
-        airframeGroup.add(finLight);
-      });
-
-      // 6. Ventral Aerodynamic Landing Keel with Titanium Skid Shoe
+      // 5. Ventral Aerodynamic Landing Keel with Titanium Skid Shoe (Ends safely forward of tail at -0.74)
       const keelShape = new THREE.Shape();
       keelShape.moveTo(0, 0);
-      keelShape.lineTo(0.62, 0);
-      keelShape.lineTo(0.55, -0.095);
+      keelShape.lineTo(0.44, 0);       // Extends back to Z = -0.74 (well forward of pusher motor at -0.86)
+      keelShape.lineTo(0.38, -0.095);
       keelShape.lineTo(0.06, -0.095);
       keelShape.closePath();
 
@@ -1166,124 +1444,192 @@
       ventralKeel.position.set(-0.021, 0.18, -0.30);
       ventralKeel.rotation.y = Math.PI / 2;
       ventralKeel.castShadow = true;
+      ventralKeel.userData.compId = 'airframe';
       airframeGroup.add(ventralKeel);
 
-      const skidShoe = new THREE.Mesh(new THREE.BoxGeometry(0.046, 0.008, 0.45), chromeSilverMat);
-      skidShoe.position.set(0, 0.08, -0.02);
+      const skidShoe = new THREE.Mesh(new THREE.BoxGeometry(0.046, 0.008, 0.32), chromeSilverMat);
+      skidShoe.position.set(0, 0.08, -0.08);
+      skidShoe.userData.compId = 'airframe';
       airframeGroup.add(skidShoe);
 
       // -----------------------------------------------------------------------
       // FORWARD-SWEPT WINGS & STRUCTURAL TRUSS SYSTEM
       // Matching the exact layout from the reference image:
-      // 1. Forward-Swept Main Wings with Pure White Top Panels & "SILENTRESQ" Brand
-      // 2. Forward Diagonal Bracing Struts connecting forward fuselage to front motors
+      // 1. Forward Diagonal Structural Box Struts connecting lower fuselage to wings
+      // 2. Main Forward-Swept Wings with Pure White Top Panels & "RESCUE" Brand
       // 3. Rear Swept Rotor Booms extending to rear motors
       // -----------------------------------------------------------------------
       const leftWingGroup = new THREE.Group();
+      leftWingGroup.userData.compId = 'airframe';
       const rightWingGroup = new THREE.Group();
+      rightWingGroup.userData.compId = 'airframe';
 
       function buildWingStructure(isLeft) {
         const g = new THREE.Group();
+        g.userData.compId = 'airframe';
         const dir = isLeft ? -1 : 1;
 
-        // Key Coordinates from Reference Image
-        const strutRoot = new THREE.Vector3(dir * 0.09, 0.20, 0.45);
-        const frontMotorPos = new THREE.Vector3(dir * 1.35, 0.25, -0.22);
-        const wingRootFwd = new THREE.Vector3(dir * 0.12, 0.24, -0.15);
-        const wingRootAft = new THREE.Vector3(dir * 0.12, 0.24, -0.45);
-        const rearMotorPos = new THREE.Vector3(dir * 0.95, 0.25, -1.05);
+        // Key Structural Coordinates matching reference photo:
+        const strutFuselageRoot = new THREE.Vector3(dir * 0.10, 0.19, 0.58);
+        const strutWingJoint = new THREE.Vector3(dir * 0.86, 0.24, 0.16);
+        const frontMotorPos = new THREE.Vector3(dir * 1.34, 0.25, 0.12);
 
-        // 1. FORWARD DIAGONAL BRACING STRUT
-        // Connects from forward fuselage near nose to front motor station
-        const strutCurve = new THREE.CatmullRomCurve3([
-          strutRoot,
-          new THREE.Vector3(dir * 0.72, 0.22, 0.12),
-          frontMotorPos
-        ]);
-        const strutGeom = new THREE.TubeGeometry(strutCurve, 20, 0.022, 8, false);
-        const strutMesh = new THREE.Mesh(strutGeom, droneOrangeMat);
+        const wingRootFwd = new THREE.Vector3(dir * 0.12, 0.24, 0.08);
+        const wingRootAft = new THREE.Vector3(dir * 0.12, 0.24, -0.32);
+
+        const rearBoomRoot = new THREE.Vector3(dir * 0.11, 0.235, -0.42);
+        const rearMotorPos = new THREE.Vector3(dir * 1.02, 0.25, -0.88);
+
+        // 1. FORWARD DIAGONAL STRUCTURAL BOX STRUT
+        // Sleek aerodynamic rectangular carbon spar connecting lower fuselage to front wing knuckle
+        const strutDelta = new THREE.Vector3().subVectors(strutWingJoint, strutFuselageRoot);
+        const strutLength = strutDelta.length();
+        const strutMid = new THREE.Vector3().addVectors(strutFuselageRoot, strutWingJoint).multiplyScalar(0.5);
+
+        const strutBoxGeom = new THREE.BoxGeometry(0.052, 0.036, strutLength);
+        const strutMesh = new THREE.Mesh(strutBoxGeom, droneOrangeMat);
+        strutMesh.position.copy(strutMid);
+        strutMesh.lookAt(strutWingJoint);
         strutMesh.castShadow = true;
         g.add(strutMesh);
 
-        // CNC Machined Aluminum Strut Mount Sleeves
-        const sleeve1 = new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.028, 0.04, 16), metalAlumMat);
-        sleeve1.position.copy(strutRoot);
-        g.add(sleeve1);
-
-        // 2. MAIN FORWARD-SWEPT WING BLADE
-        // Sweeps forward & outward from mid-fuselage root to the front motor station
-        const wingShape = new THREE.Shape();
-        wingShape.moveTo(wingRootFwd.z, wingRootFwd.x * dir);
-        wingShape.lineTo(frontMotorPos.z + 0.08, frontMotorPos.x * dir);
-        wingShape.lineTo(frontMotorPos.z - 0.08, frontMotorPos.x * dir);
-        wingShape.lineTo(wingRootAft.z, wingRootAft.x * dir);
-        wingShape.closePath();
-
-        const wingGeom = new THREE.ExtrudeGeometry(wingShape, { depth: 0.024, bevelEnabled: true, bevelSize: 0.005, bevelThickness: 0.005 });
-        wingGeom.rotateX(-Math.PI / 2);
-        if (!isLeft) {
-          wingGeom.scale(1, 1, 1);
+        // Underside structural rib indentation slots along the strut
+        for (let i = -0.32; i <= 0.32; i += 0.16) {
+          const pocket = new THREE.Mesh(new THREE.BoxGeometry(0.038, 0.012, 0.09), metalAlumMat);
+          pocket.position.set(0, -0.014, i * (strutLength * 0.5));
+          strutMesh.add(pocket);
         }
 
+        // CNC Machined Aluminum Root Mounting Cuff
+        const rootCuff = new THREE.Mesh(new THREE.CylinderGeometry(0.038, 0.042, 0.05, 16), metalAlumMat);
+        rootCuff.position.copy(strutFuselageRoot);
+        rootCuff.rotation.x = Math.PI / 2;
+        g.add(rootCuff);
+
+        // CNC Structural Wing-Junction Collar / Gusset
+        const gussetCollar = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.05, 0.09), metalAlumMat);
+        gussetCollar.position.copy(strutWingJoint);
+        g.add(gussetCollar);
+
+        // 2. MAIN FORWARD-SWEPT WING BLADE
+        // Broad chord aerofoil wing sweeping forward from mid-fuselage root out to front motor
+        const wingShape = new THREE.Shape();
+        if (!isLeft) {
+          wingShape.moveTo(0.12, 0.08);   // root LE (forward)
+          wingShape.lineTo(0.86, 0.18);   // knuckle LE (forward)
+          wingShape.lineTo(1.34, 0.16);   // tip LE (forward)
+          wingShape.lineTo(1.34, 0.02);   // tip TE (aft)
+          wingShape.lineTo(0.86, -0.02);  // knuckle TE (aft)
+          wingShape.lineTo(0.12, -0.32);  // root TE (aft)
+          wingShape.closePath();
+        } else {
+          wingShape.moveTo(-0.12, -0.32); // root TE (aft)
+          wingShape.lineTo(-0.86, -0.02); // knuckle TE (aft)
+          wingShape.lineTo(-1.34, 0.02);  // tip TE (aft)
+          wingShape.lineTo(-1.34, 0.16);  // tip LE (forward)
+          wingShape.lineTo(-0.86, 0.18);  // knuckle LE (forward)
+          wingShape.lineTo(-0.12, 0.08);  // root LE (forward)
+          wingShape.closePath();
+        }
+
+        const wingGeom = new THREE.ExtrudeGeometry(wingShape, {
+          depth: 0.028,
+          bevelEnabled: true,
+          bevelSize: 0.005,
+          bevelThickness: 0.005,
+          bevelSegments: 2
+        });
+        wingGeom.rotateX(Math.PI / 2);
+        wingGeom.computeVertexNormals();
+
         const mainWingCarbon = new THREE.Mesh(wingGeom, droneOrangeMat);
-        mainWingCarbon.position.set(0, 0.23, 0);
+        mainWingCarbon.position.set(0, 0.245, 0);
         mainWingCarbon.castShadow = true;
         g.add(mainWingCarbon);
 
-        // 3. PURE WHITE COMPOSITE UPPER WING PANEL (Prominent white aero plate from image)
+        // 3. PURE WHITE COMPOSITE UPPER WING PANEL (Crisp white aero plate from image)
         const whitePanelShape = new THREE.Shape();
-        whitePanelShape.moveTo(wingRootFwd.z + 0.04, (wingRootFwd.x + dir * 0.08) * dir);
-        whitePanelShape.lineTo(frontMotorPos.z + 0.06, (frontMotorPos.x - dir * 0.06) * dir);
-        whitePanelShape.lineTo(frontMotorPos.z - 0.06, (frontMotorPos.x - dir * 0.06) * dir);
-        whitePanelShape.lineTo(wingRootAft.z + 0.04, (wingRootAft.x + dir * 0.08) * dir);
-        whitePanelShape.closePath();
+        if (!isLeft) {
+          whitePanelShape.moveTo(0.18, 0.06);
+          whitePanelShape.lineTo(0.84, 0.16);
+          whitePanelShape.lineTo(1.28, 0.14);
+          whitePanelShape.lineTo(1.28, 0.04);
+          whitePanelShape.lineTo(0.84, 0.00);
+          whitePanelShape.lineTo(0.18, -0.26);
+          whitePanelShape.closePath();
+        } else {
+          whitePanelShape.moveTo(-0.18, -0.26);
+          whitePanelShape.lineTo(-0.84, 0.00);
+          whitePanelShape.lineTo(-1.28, 0.04);
+          whitePanelShape.lineTo(-1.28, 0.14);
+          whitePanelShape.lineTo(-0.84, 0.16);
+          whitePanelShape.lineTo(-0.18, 0.06);
+          whitePanelShape.closePath();
+        }
 
-        const whitePanelGeom = new THREE.ExtrudeGeometry(whitePanelShape, { depth: 0.008, bevelEnabled: true, bevelSize: 0.003, bevelThickness: 0.003 });
-        whitePanelGeom.rotateX(-Math.PI / 2);
+        const whitePanelGeom = new THREE.ExtrudeGeometry(whitePanelShape, {
+          depth: 0.008,
+          bevelEnabled: true,
+          bevelSize: 0.002,
+          bevelThickness: 0.002
+        });
+        whitePanelGeom.rotateX(Math.PI / 2);
+        whitePanelGeom.computeVertexNormals();
 
         const whitePanel = new THREE.Mesh(whitePanelGeom, panelWhiteMat);
-        whitePanel.position.set(0, 0.245, 0);
+        whitePanel.position.set(0, 0.252, 0);
         whitePanel.castShadow = true;
         g.add(whitePanel);
 
-        // 4. "SILENTRESQ" BRAND DECAL (Winged S + SILENTRESQ in #FF4D00 on the white wing)
+        // 4. "RESCUE" BRAND DECAL (Winged Insignia + RESCUE bold lettering on white wing panel)
         const decalMesh = new THREE.Mesh(
-          new THREE.PlaneGeometry(0.58, 0.145),
-          new THREE.MeshBasicMaterial({ map: decalTexture, transparent: true, opacity: 0.98 })
+          new THREE.PlaneGeometry(0.58, 0.14),
+          new THREE.MeshBasicMaterial({ map: decalTexture, transparent: true, opacity: 0.98, depthWrite: false })
         );
         decalMesh.rotation.x = -Math.PI / 2;
-        const wingAngle = Math.atan2(frontMotorPos.z - wingRootFwd.z, Math.abs(frontMotorPos.x - wingRootFwd.x));
-        decalMesh.rotation.z = isLeft ? -wingAngle : wingAngle + Math.PI;
-        decalMesh.position.set(dir * 0.76, 0.252, -0.18);
+        if (isLeft) {
+          decalMesh.rotation.z = Math.PI - 0.12;
+          decalMesh.position.set(-0.76, 0.258, 0.08);
+        } else {
+          decalMesh.rotation.z = -0.12;
+          decalMesh.position.set(0.76, 0.258, 0.08);
+        }
         g.add(decalMesh);
 
-        // 5. Luminous Pure White Accent Strip along Wing Seam
+        // 5. Luminous Pure White Accent Strip along Wing Leading Edge
         const wingLightCurve = new THREE.CatmullRomCurve3([
-          new THREE.Vector3(dir * 0.32, 0.246, -0.38),
-          new THREE.Vector3(dir * 0.82, 0.246, -0.26),
-          new THREE.Vector3(dir * 1.24, 0.246, -0.22)
+          new THREE.Vector3(dir * 0.14, 0.246, 0.08),
+          new THREE.Vector3(dir * 0.86, 0.248, 0.18),
+          new THREE.Vector3(dir * 1.34, 0.250, 0.16)
         ]);
-        const wingLightGeom = new THREE.TubeGeometry(wingLightCurve, 16, 0.004, 6, false);
+        const wingLightGeom = new THREE.TubeGeometry(wingLightCurve, 24, 0.0045, 8, false);
         const wingLight = new THREE.Mesh(wingLightGeom, accentWhiteMat);
         g.add(wingLight);
 
         // 6. REAR SWEPT ROTOR BOOM
-        // Extends from mid/aft fuselage backward and outward to rear motor
-        const rearBoomCurve = new THREE.CatmullRomCurve3([
-          wingRootAft,
-          new THREE.Vector3(dir * 0.55, 0.24, -0.75),
-          rearMotorPos
-        ]);
-        const rearBoomGeom = new THREE.TubeGeometry(rearBoomCurve, 16, 0.022, 8, false);
+        // Sleek aerodynamic box-section carbon boom extending to rear motor
+        const rearDelta = new THREE.Vector3().subVectors(rearMotorPos, rearBoomRoot);
+        const rearLength = rearDelta.length();
+        const rearMid = new THREE.Vector3().addVectors(rearBoomRoot, rearMotorPos).multiplyScalar(0.5);
+
+        const rearBoomGeom = new THREE.BoxGeometry(0.048, 0.034, rearLength);
         const rearBoom = new THREE.Mesh(rearBoomGeom, droneOrangeMat);
+        rearBoom.position.copy(rearMid);
+        rearBoom.lookAt(rearMotorPos);
         rearBoom.castShadow = true;
         g.add(rearBoom);
 
-        // Luminous Pure White Accent Pinstripe along Rear Boom
-        const rearLightGeom = new THREE.TubeGeometry(rearBoomCurve, 16, 0.0035, 6, false);
+        // White upper accent cap on rear boom
+        const rearCapGeom = new THREE.BoxGeometry(0.040, 0.006, rearLength * 0.88);
+        const rearCap = new THREE.Mesh(rearCapGeom, panelWhiteMat);
+        rearCap.position.set(0, 0.018, 0);
+        rearBoom.add(rearCap);
+
+        // Luminous Linear Accent Strip along Rear Boom
+        const rearLightGeom = new THREE.BoxGeometry(0.012, 0.008, rearLength * 0.82);
         const rearLight = new THREE.Mesh(rearLightGeom, accentWhiteMat);
-        rearLight.position.y += 0.012;
-        g.add(rearLight);
+        rearLight.position.set(0, 0.022, 0);
+        rearBoom.add(rearLight);
 
         return g;
       }
@@ -1295,21 +1641,24 @@
       droneGroup.add(airframeGroup);
 
       // -----------------------------------------------------------------------
-      // [02, 03, 04] 4 VTOL ROTOR UNITS, MOTORS, ESCs & PROPELLERS
-      // Exactly matching the photo:
-      // CNC gunmetal stator, visible electrolytic copper windings, black anodized bell,
-      // chrome rim & spinner nut, 2-blade glossy carbon prop with white safety tip stripes!
+      // [02, 03, 04] 4 VTOL ROTOR UNITS, MOTORS, ESCs, PROPELLERS & LANDING FEET
+      // Matching reference photo:
+      // CNC gunmetal stator, visible bronze/copper stator coil ring, orange rotor bell with chrome rim,
+      // chrome dome prop nut, 2-blade carbon prop with safety tip stripes, AND downward landing bumper feet!
       // -----------------------------------------------------------------------
       const vtolMotorsGroup = new THREE.Group();
+      vtolMotorsGroup.userData.compId = 'vtol-motors';
       const vtolEscsGroup = new THREE.Group();
+      vtolEscsGroup.userData.compId = 'vtol-escs';
       const vtolPropsGroup = new THREE.Group();
+      vtolPropsGroup.userData.compId = 'vtol-props';
       const animatedVtolProps = [];
 
       const vtolPositions = [
-        { id: 'FL', x: -1.35, y: 0.25, z: -0.22, dir: 1 },
-        { id: 'FR', x: 1.35, y: 0.25, z: -0.22, dir: -1 },
-        { id: 'RL', x: -0.95, y: 0.25, z: -1.05, dir: -1 },
-        { id: 'RR', x: 0.95, y: 0.25, z: -1.05, dir: 1 }
+        { id: 'FL', x: -1.34, y: 0.25, z: 0.12, dir: 1 },
+        { id: 'FR', x: 1.34, y: 0.25, z: 0.12, dir: -1 },
+        { id: 'RL', x: -1.02, y: 0.25, z: -0.88, dir: -1 },
+        { id: 'RR', x: 1.02, y: 0.25, z: -0.88, dir: 1 }
       ];
 
       vtolPositions.forEach((pos) => {
@@ -1321,7 +1670,7 @@
         const statorBase = new THREE.Mesh(new THREE.CylinderGeometry(0.054, 0.050, 0.11, 24), metalAlumMat);
         motorPod.add(statorBase);
 
-        // Exposed 12-Pole Wound Copper Stator Coil Bundles (Clearly visible in reference photo!)
+        // Visible Bronze/Copper Stator Windings (Clearly visible in reference photo!)
         for (let i = 0; i < 8; i++) {
           const angle = (i / 8) * Math.PI * 2;
           const coilBundle = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.046, 10), copperCoilMat);
@@ -1346,6 +1695,22 @@
         const propNut = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.024, 0.028, 16), chromeSilverMat);
         propNut.position.y = 0.102;
         motorPod.add(propNut);
+
+        // DOWNWARD LANDING BUMPER LEG / FOOT (As seen under each motor pod in reference photo!)
+        const landingLeg = new THREE.Group();
+        landingLeg.position.y = -0.055;
+        const legStrut = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.014, 0.10, 16), metalAlumMat);
+        legStrut.position.y = -0.05;
+        landingLeg.add(legStrut);
+
+        const shockRing = new THREE.Mesh(new THREE.TorusGeometry(0.019, 0.004, 8, 16).rotateX(Math.PI / 2), copperCoilMat);
+        shockRing.position.y = -0.03;
+        landingLeg.add(shockRing);
+
+        const footBumper = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.018, 0.022, 16), chromeSilverMat);
+        footBumper.position.y = -0.105;
+        landingLeg.add(footBumper);
+        motorPod.add(landingLeg);
 
         vtolMotorsGroup.add(motorPod);
 
@@ -1408,81 +1773,129 @@
 
       // -----------------------------------------------------------------------
       // [05, 06, 07] REAR PUSHER CRUISE DRIVE (Motor, ESC & Propeller)
-      // Mounted horizontally between the twin vertical tail fins
+      // Mounted horizontally on the exterior back edge of the tailcone (Zero Body Intersection)
       // -----------------------------------------------------------------------
       const cruiseMotorGroup = new THREE.Group();
-      cruiseMotorGroup.position.set(0, 0.25, -0.75);
+      cruiseMotorGroup.userData.compId = 'cruise-motor';
+      cruiseMotorGroup.position.set(0, 0.20, -0.86); // Attached directly to the aft tail bulkhead
 
-      const cruiseMotorHousing = new THREE.Mesh(new THREE.CylinderGeometry(0.042, 0.042, 0.088, 24).rotateX(Math.PI / 2), metalAlumMat);
+      // Tail Bulkhead CNC Mounting Collar / Firewall Flange (Bolted flush against the fuselage tailcone edge)
+      const motorMountPlate = new THREE.Mesh(new THREE.CylinderGeometry(0.048, 0.048, 0.016, 24).rotateX(Math.PI / 2), metalAlumMat);
+      motorMountPlate.position.z = -0.008; // Flush at tail bulkhead
+      motorMountPlate.userData.compId = 'cruise-motor';
+      cruiseMotorGroup.add(motorMountPlate);
+
+      // High-Efficiency External Pusher Motor Stator Housing (Extending aft behind the drone body)
+      const cruiseMotorHousing = new THREE.Mesh(new THREE.CylinderGeometry(0.038, 0.038, 0.075, 24).rotateX(Math.PI / 2), metalAlumMat);
+      cruiseMotorHousing.position.z = -0.055; // Completely outside the tail cone
+      cruiseMotorHousing.userData.compId = 'cruise-motor';
       cruiseMotorGroup.add(cruiseMotorHousing);
 
-      // Copper Stator Ring
-      const cruiseStator = new THREE.Mesh(new THREE.TorusGeometry(0.038, 0.006, 10, 24), copperCoilMat);
-      cruiseStator.position.z = 0.010;
+      // Exposed Bronze/Copper Stator Cooling Ring
+      const cruiseStator = new THREE.Mesh(new THREE.TorusGeometry(0.035, 0.0055, 10, 24), copperCoilMat);
+      cruiseStator.position.z = -0.050;
+      cruiseStator.userData.compId = 'cruise-motor';
       cruiseMotorGroup.add(cruiseStator);
 
-      // Streamlined Chrome Prop Spinner Cone
-      const cruiseSpinner = new THREE.Mesh(new THREE.ConeGeometry(0.022, 0.046, 16).rotateX(-Math.PI / 2), chromeSilverMat);
-      cruiseSpinner.position.z = -0.068;
+      // Streamlined Chrome Propeller Spinner Cone pointing backward into the slipstream
+      const cruiseSpinner = new THREE.Mesh(new THREE.ConeGeometry(0.018, 0.055, 16).rotateX(-Math.PI / 2), chromeSilverMat);
+      cruiseSpinner.position.z = -0.118;
+      cruiseSpinner.userData.compId = 'cruise-motor';
       cruiseMotorGroup.add(cruiseSpinner);
 
       droneGroup.add(cruiseMotorGroup);
 
-      // Cruise ESC
+      // Cruise ESC (Internal avionics bay forward of tail bulkhead)
       const cruiseEscGroup = new THREE.Group();
-      cruiseEscGroup.position.set(0, 0.25, -0.55);
-      cruiseEscGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.022, 0.08), droneOrangeMat));
-      cruiseEscGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.042, 0.006, 0.076), metalAlumMat));
+      cruiseEscGroup.userData.compId = 'cruise-esc';
+      cruiseEscGroup.position.set(0, 0.22, -0.70);
+      const cruiseEscCase = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.022, 0.08), droneOrangeMat);
+      cruiseEscCase.userData.compId = 'cruise-esc';
+      cruiseEscGroup.add(cruiseEscCase);
+      const cruiseEscSink = new THREE.Mesh(new THREE.BoxGeometry(0.042, 0.006, 0.076), metalAlumMat);
+      cruiseEscSink.userData.compId = 'cruise-esc';
+      cruiseEscGroup.add(cruiseEscSink);
       droneGroup.add(cruiseEscGroup);
 
-      // Cruise 2-Blade Pusher Propeller (Rescue Safety Orange with Pure White Tips)
+      // Cruise 2-Blade Pusher Propeller (Mounted on the spinner hub at the back edge of the tail)
       const cruisePropGroup = new THREE.Group();
-      cruisePropGroup.position.set(0, 0.25, -0.85);
-      cruisePropGroup.add(new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.022, 0.02, 16).rotateX(Math.PI / 2), chromeSilverMat));
+      cruisePropGroup.userData.compId = 'cruise-prop';
+      cruisePropGroup.position.set(0, 0.20, -0.98); // At Z = -0.98, spinning completely in clean air behind the tail
+      const propHub = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.022, 0.024, 16).rotateX(Math.PI / 2), chromeSilverMat);
+      propHub.userData.compId = 'cruise-prop';
+      cruisePropGroup.add(propHub);
 
       const cruiseBlade = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.032, 0.006), droneOrangeMat);
+      cruiseBlade.userData.compId = 'cruise-prop';
       cruisePropGroup.add(cruiseBlade);
 
       [-0.16, 0.16].forEach((cx) => {
         const cTip = new THREE.Mesh(new THREE.BoxGeometry(0.032, 0.034, 0.007), panelWhiteMat);
         cTip.position.x = cx;
+        cTip.userData.compId = 'cruise-prop';
         cruisePropGroup.add(cTip);
       });
       droneGroup.add(cruisePropGroup);
 
       // -----------------------------------------------------------------------
       // [21, 22] NOSE GIMBAL SENSOR MATRIX (Dual Optical + LWIR Lenses)
-      // Smoothly embedded in the front nose cone as seen in the reference render
+      // Flush mounted directly in the front nose cone of the fuselage body (Zero Gap)
       // -----------------------------------------------------------------------
       const cameraTurretGroup = new THREE.Group();
-      cameraTurretGroup.position.set(0, 0.16, 1.32);
+      cameraTurretGroup.userData.compId = 'rgb-camera';
+      cameraTurretGroup.position.set(0, 0.20, 1.23); // Firmly seated inside front nose socket
 
-      // Forward-Facing Cylindrical CNC Bezel Housing
-      const camHousing = new THREE.Mesh(new THREE.CylinderGeometry(0.062, 0.065, 0.08, 28).rotateX(Math.PI / 2), metalAlumMat);
+      // Aerodynamic nose socket fairing sleeve that nests deeply into fuselage body (Zero Gap)
+      const fairingCuff = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.052, 0.065, 0.07, 28).rotateX(Math.PI / 2),
+        droneOrangeMat
+      );
+      fairingCuff.position.z = -0.025; // Nests from z = 1.16 to 1.23 inside the fuselage nose
+      fairingCuff.userData.compId = 'rgb-camera';
+      cameraTurretGroup.add(fairingCuff);
+
+      // Upper white aerodynamic visor shroud seamlessly matching top canopy
+      const visorHood = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.050, 0.062, 0.05, 24, 1, false, 0, Math.PI).rotateX(Math.PI / 2).rotateZ(Math.PI / 2),
+        panelWhiteMat
+      );
+      visorHood.position.set(0, 0.022, -0.02);
+      visorHood.userData.compId = 'rgb-camera';
+      cameraTurretGroup.add(visorHood);
+
+      // Forward-Facing Cylindrical CNC Bezel Housing sitting flush at nose socket
+      const camHousing = new THREE.Mesh(new THREE.CylinderGeometry(0.048, 0.052, 0.035, 28).rotateX(Math.PI / 2), metalAlumMat);
+      camHousing.position.z = 0.015;
+      camHousing.userData.compId = 'rgb-camera';
       cameraTurretGroup.add(camHousing);
 
       // Anti-Reflective Optical Ring
-      const camRing = new THREE.Mesh(new THREE.TorusGeometry(0.058, 0.004, 12, 28), chromeSilverMat);
-      camRing.position.z = 0.042;
+      const camRing = new THREE.Mesh(new THREE.TorusGeometry(0.046, 0.0035, 12, 28), chromeSilverMat);
+      camRing.position.z = 0.032;
+      camRing.userData.compId = 'rgb-camera';
       cameraTurretGroup.add(camRing);
 
       // [21] Primary 4K Optical Camera Lens
       const rgbGroup = new THREE.Group();
-      rgbGroup.position.set(0, 0, 0.044);
+      rgbGroup.userData.compId = 'rgb-camera';
+      rgbGroup.position.set(0, 0, 0.035);
       const rgbLens = new THREE.Mesh(
-        new THREE.SphereGeometry(0.042, 24, 24, 0, Math.PI * 2, 0, Math.PI / 2).rotateX(Math.PI / 2),
+        new THREE.SphereGeometry(0.032, 24, 24, 0, Math.PI * 2, 0, Math.PI / 2).rotateX(Math.PI / 2),
         lensGlassMat
       );
+      rgbLens.userData.compId = 'rgb-camera';
       rgbGroup.add(rgbLens);
       cameraTurretGroup.add(rgbGroup);
 
       // [22] 256×192 LWIR Thermal Camera Aperture
       const thermalGroup = new THREE.Group();
-      thermalGroup.position.set(0.038, 0.02, 0.044);
+      thermalGroup.userData.compId = 'thermal-camera';
+      thermalGroup.position.set(0.028, 0.014, 0.035);
       const thermalLens = new THREE.Mesh(
-        new THREE.SphereGeometry(0.015, 16, 16, 0, Math.PI * 2, 0, Math.PI / 2).rotateX(Math.PI / 2),
+        new THREE.SphereGeometry(0.012, 16, 16, 0, Math.PI * 2, 0, Math.PI / 2).rotateX(Math.PI / 2),
         lensGlassMat
       );
+      thermalLens.userData.compId = 'thermal-camera';
       thermalGroup.add(thermalLens);
       cameraTurretGroup.add(thermalGroup);
 
@@ -1492,6 +1905,7 @@
       // [20] INTERNAL COMPUTE BAY: NVIDIA Jetson Orin Nano Super 8GB & Storage
       // -----------------------------------------------------------------------
       const jetsonGroup = new THREE.Group();
+      jetsonGroup.userData.compId = 'jetson-orin-nano';
       jetsonGroup.position.set(0, 0.28, 0.25);
 
       // Multi-layer Green Circuit PCB Motherboard
@@ -1524,9 +1938,11 @@
 
       // [23] High-Speed NVMe M.2 2280 SSD Solid State Storage
       const ssd = new THREE.Mesh(new THREE.BoxGeometry(0.026, 0.006, 0.082), metalAlumMat);
+      ssd.userData.compId = 'onboard-storage';
       ssd.position.set(0.046, 0.008, 0.02);
       jetsonGroup.add(ssd);
       const ssdLabel = new THREE.Mesh(new THREE.BoxGeometry(0.022, 0.002, 0.052), chromeSilverMat);
+      ssdLabel.userData.compId = 'onboard-storage';
       ssdLabel.position.set(0.046, 0.012, 0.02);
       jetsonGroup.add(ssdLabel);
 
@@ -1537,6 +1953,7 @@
       // -----------------------------------------------------------------------
       // [08] Flight Controller
       const fcGroup = new THREE.Group();
+      fcGroup.userData.compId = 'flight-controller';
       fcGroup.position.set(0, 0.28, 0.05);
       fcGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.092, 0.03, 0.092), droneOrangeMat));
       const fcLed = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.006, 16), accentWhiteMat);
@@ -1544,44 +1961,75 @@
       fcGroup.add(fcLed);
       droneGroup.add(fcGroup);
 
-      // [09] GPS/GNSS + Compass Mast (Mounted on Dorsal Spine)
+      // [09] GPS/GNSS + Compass Module (Flush aerodynamic patch on fuselage spine)
       const gpsGroup = new THREE.Group();
-      gpsGroup.position.set(0, 0.42, -0.25);
-      const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.01, 0.14, 12), droneOrangeMat);
-      mast.position.y = -0.06;
-      gpsGroup.add(mast);
-      const dome = new THREE.Mesh(new THREE.CylinderGeometry(0.052, 0.052, 0.022, 24), panelWhiteMat);
-      gpsGroup.add(dome);
+      gpsGroup.userData.compId = 'gps-compass';
+      gpsGroup.position.set(0, 0.252, -0.25);
+      const gpsBase = new THREE.Mesh(new THREE.BoxGeometry(0.065, 0.008, 0.065), metalAlumMat);
+      gpsGroup.add(gpsBase);
+      const gpsDome = new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.030, 0.010, 24), panelWhiteMat);
+      gpsDome.position.y = 0.007;
+      gpsGroup.add(gpsDome);
+      const gpsLed = new THREE.Mesh(new THREE.CylinderGeometry(0.004, 0.004, 0.006, 12), accentWhiteMat);
+      gpsLed.position.set(0.018, 0.008, 0.018);
+      gpsGroup.add(gpsLed);
       droneGroup.add(gpsGroup);
 
-      // [10] Airspeed Sensor + Pitot Tube (Nose)
+      // [10] Airspeed Sensor + Pitot Tube (Firmly anchored into upper nose canopy deck, Zero Gap)
       const pitotGroup = new THREE.Group();
-      pitotGroup.position.set(0, 0.22, 1.40);
-      const probe = new THREE.Mesh(new THREE.CylinderGeometry(0.0035, 0.0035, 0.24, 12).rotateX(Math.PI / 2), chromeSilverMat);
-      probe.position.z = 0.12;
+      pitotGroup.userData.compId = 'airspeed-pitot';
+      pitotGroup.position.set(0, 0.258, 1.15); // Perfectly flush with top canopy deck
+
+      // Sub-surface anchor gasket penetrating into the canopy body (Zero Gap)
+      const pitotGasket = new THREE.Mesh(new THREE.BoxGeometry(0.028, 0.014, 0.052), metalAlumMat);
+      pitotGasket.position.set(0, -0.003, 0);
+      pitotGasket.userData.compId = 'airspeed-pitot';
+      pitotGroup.add(pitotGasket);
+
+      // CNC Machined Aluminum Base Mount attached directly to the canopy deck
+      const pitotBase = new THREE.Mesh(new THREE.BoxGeometry(0.022, 0.010, 0.044), droneOrangeMat);
+      pitotBase.position.set(0, 0.006, 0);
+      pitotBase.userData.compId = 'airspeed-pitot';
+      pitotGroup.add(pitotBase);
+
+      // Streamlined ferrule collar transitioning into the needle probe
+      const pitotCollar = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.008, 0.022, 12).rotateX(Math.PI / 2), metalAlumMat);
+      pitotCollar.position.set(0, 0.008, 0.028);
+      pitotCollar.userData.compId = 'airspeed-pitot';
+      pitotGroup.add(pitotCollar);
+
+      // High-precision chrome dynamic pressure probe needle extending forward from mount
+      const probe = new THREE.Mesh(new THREE.CylinderGeometry(0.003, 0.003, 0.16, 12).rotateX(Math.PI / 2), chromeSilverMat);
+      probe.position.set(0, 0.008, 0.115);
+      probe.userData.compId = 'airspeed-pitot';
       pitotGroup.add(probe);
+
       droneGroup.add(pitotGroup);
 
       // [11] Barometer
       const baroGroup = new THREE.Group();
+      baroGroup.userData.compId = 'barometer';
       baroGroup.position.set(0.06, 0.27, 0.12);
       baroGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.025, 0.015, 0.025), metalAlumMat));
       droneGroup.add(baroGroup);
 
       // [12] Control-Surface Servos
       const servoGroup = new THREE.Group();
+      servoGroup.userData.compId = 'control-servos';
       servoGroup.position.set(0.85, 0.24, -0.18);
       servoGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.035, 0.045), droneOrangeMat));
       droneGroup.add(servoGroup);
 
       // [13] RC Receiver
       const rcGroup = new THREE.Group();
+      rcGroup.userData.compId = 'rc-receiver';
       rcGroup.position.set(-0.08, 0.26, -0.15);
       rcGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.012, 0.05), droneOrangeMat));
       droneGroup.add(rcGroup);
 
       // [14] Telemetry Radio Blade Antenna
       const telemGroup = new THREE.Group();
+      telemGroup.userData.compId = 'telemetry-radio';
       telemGroup.position.set(0, 0.06, -0.40);
       const telemBladeShape = new THREE.Shape();
       telemBladeShape.moveTo(0, 0);
@@ -1594,12 +2042,14 @@
 
       // [15] Power Module
       const pmGroup = new THREE.Group();
+      pmGroup.userData.compId = 'power-module';
       pmGroup.position.set(0, 0.20, 0.28);
       pmGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.018, 0.04), droneOrangeMat));
       droneGroup.add(pmGroup);
 
       // [16] Power Distribution System (Busbars)
       const pdsGroup = new THREE.Group();
+      pdsGroup.userData.compId = 'pds-rail';
       pdsGroup.position.set(0, 0.18, -0.05);
       pdsGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.01, 0.22), droneOrangeMat));
       [-0.025, 0.025].forEach((bx) => {
@@ -1611,6 +2061,7 @@
 
       // [17] 6S 14–16 Ah Lithium Battery Pack
       const batteryGroup = new THREE.Group();
+      batteryGroup.userData.compId = 'battery-pack';
       batteryGroup.position.set(0, 0.14, 0.0);
       batteryGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.135, 0.072, 0.36), droneOrangeMat));
       batteryGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.076, 0.04), panelWhiteMat));
@@ -1618,24 +2069,28 @@
 
       // [18] DC-DC / BEC Regulators
       const becGroup = new THREE.Group();
+      becGroup.userData.compId = 'bec-regulators';
       becGroup.position.set(-0.07, 0.26, 0.22);
       becGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.016, 0.045), metalAlumMat));
       droneGroup.add(becGroup);
 
       // [19] Wiring, Connectors & Safety Hardware (XT90-S Anti-Spark)
       const wiringGroup = new THREE.Group();
+      wiringGroup.userData.compId = 'wiring-safety';
       wiringGroup.position.set(0, 0.16, -0.25);
       wiringGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.024, 0.02, 0.035), goldMat));
       droneGroup.add(wiringGroup);
 
       // [24] LoRa Module
       const loraGroup = new THREE.Group();
+      loraGroup.userData.compId = 'lora-module';
       loraGroup.position.set(0, 0.30, -0.45);
       loraGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.015, 0.055), panelWhiteMat));
       droneGroup.add(loraGroup);
 
       // [25] Ground LoRa Receiver / Gateway (Resting statically on floor grid)
       const groundStationGroup = new THREE.Group();
+      groundStationGroup.userData.compId = 'ground-lora-station';
       groundStationGroup.position.set(0.65, -0.16, 0.85);
       groundStationGroup.add(new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.06, 0.18), droneOrangeMat));
       const caseLid = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.025, 0.18), droneOrangeMat);
@@ -1742,9 +2197,9 @@
         { object: vtolMotorsGroup, initialPos: vtolMotorsGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0.45, 0) },
         { object: vtolEscsGroup, initialPos: vtolEscsGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0.35, 0) },
         { object: vtolPropsGroup, initialPos: vtolPropsGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0.62, 0) },
-        { object: cruiseMotorGroup, initialPos: cruiseMotorGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0, -0.4) },
+        { object: cruiseMotorGroup, initialPos: cruiseMotorGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0, -0.45) },
         { object: cruiseEscGroup, initialPos: cruiseEscGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0, -0.25) },
-        { object: cruisePropGroup, initialPos: cruisePropGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0, -0.6) },
+        { object: cruisePropGroup, initialPos: cruisePropGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0, -0.75) },
         { object: cameraTurretGroup, initialPos: cameraTurretGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0, 0.55) },
         { object: jetsonGroup, initialPos: jetsonGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0.65, 0) },
         { object: fcGroup, initialPos: fcGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0.5, 0) },
@@ -1766,12 +2221,18 @@
     const sliderTrack = document.getElementById('slider-track');
     const closeViewPanel = document.getElementById('close-view-panel');
     const panelBadge = document.getElementById('panel-badge');
+    const panelCategory = document.getElementById('panel-category');
     const panelQty = document.getElementById('panel-qty');
     const panelTitle = document.getElementById('panel-title');
     const panelRole = document.getElementById('panel-role');
     const btnCloseView = document.getElementById('btn-close-view');
     const btnExplode = document.getElementById('btn-explode');
     const btnReset = document.getElementById('btn-reset');
+
+    const screenPin = document.getElementById('screen-pin-3d');
+    const pinBadge = document.getElementById('pin-badge');
+    const pinName = document.getElementById('pin-name');
+    let activePinWorldPos = null;
 
     let activeComponent = null;
     let isExploded = false;
@@ -1796,7 +2257,7 @@
     });
 
     // =========================================================================
-    // CINEMATIC GSAP CAMERA ZOOM-IN & CLOSE VIEW LOGIC
+    // CINEMATIC GSAP CAMERA ZOOM-IN & COMPONENT NAME & USAGE INSPECTOR
     // =========================================================================
     function focusComponent(comp) {
       activeComponent = comp;
@@ -1809,20 +2270,30 @@
         activeCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       }
 
-      // Populate Floating Close View Panel
+      // Populate Floating Close View Panel (Name & Project Usage)
       panelBadge.textContent = `[${comp.num}]`;
+      if (panelCategory) panelCategory.textContent = comp.category || 'SUBSYSTEM';
       panelQty.textContent = comp.qty;
       panelTitle.textContent = comp.name;
       panelRole.textContent = comp.role;
       closeViewPanel.classList.add('visible');
 
-      // Calculate dynamic offset if in exploded mode
+      // Populate 3D Screen Pin Anchor
+      if (pinBadge) pinBadge.textContent = `[${comp.num}]`;
+      if (pinName) pinName.textContent = comp.name;
+
+      // Calculate dynamic target vector considering exploded state
       const expMul = isExploded ? 1.0 : 0.0;
       const targetVec = {
         x: comp.target[0] + comp.explodedOffset[0] * expMul,
         y: comp.target[1] + comp.explodedOffset[1] * expMul,
         z: comp.target[2] + comp.explodedOffset[2] * expMul
       };
+
+      activePinWorldPos = new THREE.Vector3(targetVec.x, targetVec.y + 0.05, targetVec.z);
+      if (screenPin) {
+        screenPin.classList.add('visible');
+      }
 
       const camVec = {
         x: comp.cam[0] + comp.explodedOffset[0] * expMul * 0.8,
@@ -1855,8 +2326,10 @@
     // Gracefully Zoom Camera Back Out to Assembled Overview
     function closeComponentView() {
       activeComponent = null;
+      activePinWorldPos = null;
       document.querySelectorAll('.component-card').forEach((c) => c.classList.remove('active'));
       closeViewPanel.classList.remove('visible');
+      if (screenPin) screenPin.classList.remove('visible');
 
       window.gsap.killTweensOf(camera.position);
       window.gsap.killTweensOf(controls.target);
@@ -1924,6 +2397,139 @@
     }, { passive: false });
 
     // =========================================================================
+    // 3D DIRECT INTERACTIVE CLICK & HOVER SELECTION
+    // Clicking any component in the 3D viewport shows its Name & Project Usage
+    // =========================================================================
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    const hoverTooltip = document.getElementById('hover-tooltip');
+    const ttNum = document.getElementById('tt-num');
+    const ttName = document.getElementById('tt-name');
+
+    let pointerDownPos = { x: 0, y: 0, time: 0 };
+    let hoveredComp = null;
+
+    // Helper to resolve the matching component from an intersected 3D mesh
+    function getComponentFromObject(object) {
+      let curr = object;
+      while (curr && curr !== droneModel && curr !== scene) {
+        if (curr.userData && curr.userData.compId) {
+          const found = COMPONENTS.find((c) => c.id === curr.userData.compId);
+          if (found) return found;
+        }
+        curr = curr.parent;
+      }
+      return null;
+    }
+
+    // Detect click vs camera orbit drag
+    renderer.domElement.addEventListener('pointerdown', (e) => {
+      pointerDownPos = { x: e.clientX, y: e.clientY, time: performance.now() };
+    });
+
+    renderer.domElement.addEventListener('pointerup', (e) => {
+      const dx = e.clientX - pointerDownPos.x;
+      const dy = e.clientY - pointerDownPos.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const elapsed = performance.now() - pointerDownPos.time;
+
+      // Generous threshold to distinguish genuine click/tap from camera orbit drag
+      if (dist < 18 && elapsed < 700) {
+        handle3DClick(e.clientX, e.clientY);
+      }
+    });
+
+    // Fallback standard click handler
+    renderer.domElement.addEventListener('click', (e) => {
+      const elapsed = performance.now() - pointerDownPos.time;
+      if (elapsed < 400) {
+        handle3DClick(e.clientX, e.clientY);
+      }
+    });
+
+    function handle3DClick(clientX, clientY) {
+      mouse.x = (clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(clientY / window.innerHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(droneModel.children, true);
+
+      if (intersects.length > 0) {
+        const comp = getComponentFromObject(intersects[0].object);
+        if (comp) {
+          focusComponent(comp);
+          triggerClickRipple(intersects[0].point);
+        }
+      }
+    }
+
+    // Hover tooltip tracking
+    renderer.domElement.addEventListener('pointermove', (e) => {
+      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(droneModel.children, true);
+
+      if (intersects.length > 0) {
+        const comp = getComponentFromObject(intersects[0].object);
+        if (comp) {
+          hoveredComp = comp;
+          renderer.domElement.style.cursor = 'pointer';
+          ttNum.textContent = comp.num;
+          ttName.textContent = comp.name;
+          hoverTooltip.style.left = `${e.clientX}px`;
+          hoverTooltip.style.top = `${e.clientY}px`;
+          hoverTooltip.classList.add('visible');
+          return;
+        }
+      }
+
+      hoveredComp = null;
+      renderer.domElement.style.cursor = 'default';
+      hoverTooltip.classList.remove('visible');
+    });
+
+    // Hide tooltip when pointer leaves window
+    document.addEventListener('pointerleave', () => {
+      hoverTooltip.classList.remove('visible');
+    });
+
+    // 3D Pulse ripple ring on the clicked component surface
+    const rippleGeom = new THREE.RingGeometry(0.015, 0.06, 32);
+    const rippleMat = new THREE.MeshBasicMaterial({ color: 0x00f0ff, side: THREE.DoubleSide, transparent: true, opacity: 0.9 });
+    const rippleMesh = new THREE.Mesh(rippleGeom, rippleMat);
+    rippleMesh.visible = false;
+    scene.add(rippleMesh);
+
+    function triggerClickRipple(worldPos) {
+      rippleMesh.position.copy(worldPos);
+      rippleMesh.lookAt(camera.position);
+      rippleMesh.scale.set(0.1, 0.1, 0.1);
+      rippleMat.opacity = 1.0;
+      rippleMesh.visible = true;
+
+      window.gsap.killTweensOf(rippleMesh.scale);
+      window.gsap.killTweensOf(rippleMat);
+
+      window.gsap.to(rippleMesh.scale, {
+        x: 1.8,
+        y: 1.8,
+        z: 1.8,
+        duration: 0.65,
+        ease: 'power2.out'
+      });
+      window.gsap.to(rippleMat, {
+        opacity: 0,
+        duration: 0.65,
+        ease: 'power2.out',
+        onComplete: () => {
+          rippleMesh.visible = false;
+        }
+      });
+    }
+
+    // =========================================================================
     // ANIMATION RENDER LOOP (Continuous Smooth Hover & Propeller Spins)
     // =========================================================================
     const clock = new THREE.Clock();
@@ -1937,6 +2543,21 @@
       // Delegate update to drone model (spins VTOL props, cruise pusher, pulses Jetson status LED)
       if (droneModel.userData.update) {
         droneModel.userData.update(delta, time);
+      }
+
+      // Update 3D callout pin screen coordinates
+      if (activePinWorldPos && screenPin && screenPin.classList.contains('visible')) {
+        const tempV = activePinWorldPos.clone();
+        tempV.project(camera);
+        if (tempV.z < 1.0) {
+          const screenX = (tempV.x * 0.5 + 0.5) * window.innerWidth;
+          const screenY = (-(tempV.y * 0.5) + 0.5) * window.innerHeight;
+          screenPin.style.left = `${screenX}px`;
+          screenPin.style.top = `${screenY}px`;
+          screenPin.style.display = 'flex';
+        } else {
+          screenPin.style.display = 'none';
+        }
       }
 
       controls.update();

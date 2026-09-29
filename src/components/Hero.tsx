@@ -29,7 +29,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDrone, onViewArchitecture }
       {/* Main Title & Subtitle */}
       <div className="max-w-4xl space-y-3 relative z-10">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-none">
-          <span className="text-[#FF6A00]">RESQNET</span> <span className="text-white font-light">RQ-01 VTOL</span>
+          <span className="text-[#FF6A00]">SILENTRESQ</span> <span className="text-white font-light">RQ-01 VTOL</span>
         </h1>
         <h2 className="text-sm sm:text-base font-mono uppercase tracking-[0.2em] text-[#00e5ff] font-semibold">
           Autonomous Disaster-Response Hybrid VTOL Fixed-Wing Drone

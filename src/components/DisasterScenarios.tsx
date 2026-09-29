@@ -40,7 +40,7 @@ export const DisasterScenarios: React.FC = () => {
           DISASTER SCENARIO RESPONSE
         </h2>
         <p className="text-xs sm:text-sm text-gray-400 mt-1 max-w-2xl font-sans">
-          Select any critical emergency environment to inspect how RESQNET RQ-01 operates when conventional telecommunications and ground access fail.
+          Select any critical emergency environment to inspect how SILENTRESQ RQ-01 operates when conventional telecommunications and ground access fail.
         </p>
       </div>
 
@@ -111,11 +111,11 @@ export const DisasterScenarios: React.FC = () => {
               </p>
             </div>
 
-            {/* RESQNET Autonomous Solution */}
+            {/* SILENTRESQ Autonomous Solution */}
             <div className="bg-black/50 border border-white/10 rounded-md p-4 border-l-4 border-l-[#76b900]">
               <div className="flex items-center gap-2 text-xs font-mono text-[#76b900] font-bold uppercase mb-1.5 tracking-wider">
                 <CheckCircle2 className="w-4 h-4" />
-                <span>RESQNET RQ-01 RESPONSE & AIR-TO-GROUND ADVANTAGE</span>
+                <span>SILENTRESQ RQ-01 RESPONSE & AIR-TO-GROUND ADVANTAGE</span>
               </div>
               <p className="text-sm text-gray-300 leading-relaxed font-sans">
                 {selectedScenario.solution}

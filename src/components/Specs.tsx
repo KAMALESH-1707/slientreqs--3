@@ -17,7 +17,7 @@ export const Specs: React.FC = () => {
           TECHNICAL SPECIFICATIONS
         </h2>
         <p className="text-xs sm:text-sm text-gray-400 mt-1 max-w-2xl font-sans">
-          Locked airframe, computing, and telemetry parameters for RESQNET RQ-01 autonomous disaster search operations.
+          Locked airframe, computing, and telemetry parameters for SILENTRESQ RQ-01 autonomous disaster search operations.
         </p>
       </div>
 
@@ -69,7 +69,7 @@ export const Specs: React.FC = () => {
               LOCKED INDUSTRIAL COLOR SCHEME & VISUAL IDENTITY
             </h3>
             <p className="text-xs font-mono text-gray-400 mt-0.5">
-              Strictly preserved color specifications as per finalized RESQNET RQ-01 industrial design.
+              Strictly preserved color specifications as per finalized SILENTRESQ RQ-01 industrial design.
             </p>
           </div>
         </div>

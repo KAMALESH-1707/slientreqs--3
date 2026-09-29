@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RESQNET RQ-01 — Hybrid VTOL Disaster Response Drone</title>
+  <title>SILENTRESQ RQ-01 — Hybrid VTOL Disaster Response Drone</title>
   <meta name="description" content="High-fidelity 3D virtual prototype showcase of the custom Hybrid VTOL Disaster Response Drone with 25 mapped engineering components." />
-  <meta property="og:title" content="RESQNET RQ-01 — Hybrid VTOL Disaster Response Drone" />
+  <meta property="og:title" content="SILENTRESQ RQ-01 — Hybrid VTOL Disaster Response Drone" />
   <meta property="og:description" content="Interactive 3D virtual prototype showcase with 25 mapped subsystems and cinematic GSAP camera navigation." />
   
   <!-- Fonts -->
@@ -643,7 +643,7 @@
   <div class="brand-overlay">
     <div class="brand-pill">
       <div class="pulse-dot"></div>
-      <div class="brand-title">RESQNET RQ-01</div>
+      <div class="brand-title">SILENTRESQ RQ-01</div>
     </div>
     <div class="brand-sub">SILENTRESQ HYBRID VTOL CAD PROTOTYPE</div>
     <div class="color-tags">
@@ -948,10 +948,10 @@
         name: '4K Optical RGB Camera',
         qty: 'Qty: 1',
         category: 'OPTICAL SENSORS',
-        role: 'High-resolution daytime survivor search and aerial reconnaissance. 4K UHD stabilized optical sensor nested directly into the aerodynamic forward nose cone socket of the drone body with zero gap.',
-        target: [0, 0.20, 1.24],
-        cam: [0.22, 0.25, 1.55],
-        explodedOffset: [0, 0, 0.55]
+        role: 'High-resolution daytime survivor search and aerial reconnaissance. 4K UHD optical sensor mounted under the drone body inside the 2-axis ventral gimbal turret for wide ground scanning.',
+        target: [0, 0.075, 0.52],
+        cam: [0.30, 0.03, 0.78],
+        explodedOffset: [0, -0.45, 0.15]
       },
       {
         id: 'thermal-camera',
@@ -959,10 +959,10 @@
         name: '256×192 LWIR Thermal Camera',
         qty: 'Qty: 1',
         category: 'THERMAL SENSORS',
-        role: 'Human body heat-signature detection through smoke, darkness, dust and disaster debris. Integrated alongside 4K optical sensor inside the nose cone housing with zero gap.',
-        target: [0.028, 0.21, 1.24],
-        cam: [0.22, 0.25, 1.55],
-        explodedOffset: [0, 0, 0.55]
+        role: 'Human body heat-signature detection through smoke, darkness, dust and disaster debris. Mounted under the drone body alongside the 4K optical sensor in the ventral sensor gimbal turret for ground thermal mapping.',
+        target: [0.02, 0.075, 0.52],
+        cam: [0.30, 0.03, 0.78],
+        explodedOffset: [0, -0.45, 0.15]
       },
       {
         id: 'onboard-storage',
@@ -1231,6 +1231,14 @@
         envMapIntensity: 1.3
       });
 
+      // Tactical Dark Gunmetal Matte Finish
+      const metalGunmetalMat = new THREE.MeshStandardMaterial({
+        color: 0x1f2328,
+        roughness: 0.32,
+        metalness: 0.88,
+        envMapIntensity: 1.2
+      });
+
       // Polished Titanium / Chrome for Rims and Spinners
       const chromeSilverMat = new THREE.MeshStandardMaterial({
         color: 0xe2e6ee,
@@ -1363,9 +1371,9 @@
       fuselagePoints.push(new THREE.Vector2(0.130, 0.58));   // Forward strut junction
       fuselagePoints.push(new THREE.Vector2(0.105, 0.95));   // Forward deck shoulder
       fuselagePoints.push(new THREE.Vector2(0.082, 1.15));   // Forward nose taper
-      fuselagePoints.push(new THREE.Vector2(0.062, 1.22));   // Camera socket transition
-      fuselagePoints.push(new THREE.Vector2(0.052, 1.24));   // Nose socket bezel rim (Z = +1.24)
-      fuselagePoints.push(new THREE.Vector2(0.001, 1.24));   // Forward bulkhead cap
+      fuselagePoints.push(new THREE.Vector2(0.052, 1.22));   // Aerodynamic nosecone contour
+      fuselagePoints.push(new THREE.Vector2(0.024, 1.25));   // Forward radome nose cap
+      fuselagePoints.push(new THREE.Vector2(0.001, 1.26));   // Forward apex tip
 
       const fuselageGeom = new THREE.LatheGeometry(fuselagePoints, 36);
       fuselageGeom.rotateX(Math.PI / 2);
@@ -1381,15 +1389,16 @@
       airframeGroup.add(lowerHull);
 
       // 2. Distinctive Translucent Pure White Top Canopy Shield (Forward Deck)
-      // Profile points from mid-deck (0.20) forward to nose (1.24)
+      // Profile points from mid-deck (0.20) forward to nose (1.26)
       const canopyPoints = [];
       canopyPoints.push(new THREE.Vector2(0.001, 0.20));
       canopyPoints.push(new THREE.Vector2(0.098, 0.22));
       canopyPoints.push(new THREE.Vector2(0.118, 0.45));
       canopyPoints.push(new THREE.Vector2(0.095, 0.85));
       canopyPoints.push(new THREE.Vector2(0.070, 1.15));
-      canopyPoints.push(new THREE.Vector2(0.050, 1.23));
-      canopyPoints.push(new THREE.Vector2(0.001, 1.24));
+      canopyPoints.push(new THREE.Vector2(0.046, 1.22));
+      canopyPoints.push(new THREE.Vector2(0.020, 1.25));
+      canopyPoints.push(new THREE.Vector2(0.001, 1.26));
 
       const canopyGeom = new THREE.LatheGeometry(canopyPoints, 28, 0, Math.PI);
       canopyGeom.rotateX(Math.PI / 2);
@@ -1404,12 +1413,21 @@
       upperCanopy.userData.compId = 'airframe';
       airframeGroup.add(upperCanopy);
 
+      // Solid aerodynamic radome nosecone cap
+      const noseRadomeGeom = new THREE.SphereGeometry(0.026, 20, 16, 0, Math.PI * 2, 0, Math.PI / 2);
+      noseRadomeGeom.rotateX(Math.PI / 2);
+      noseRadomeGeom.scale(1.0, 0.72, 1.35);
+      const noseRadome = new THREE.Mesh(noseRadomeGeom, droneOrangeMat);
+      noseRadome.position.set(0, 0.20, 1.25);
+      noseRadome.userData.compId = 'airframe';
+      airframeGroup.add(noseRadome);
+
       // 3. Luminous Pure White Canopy Perimeter Accent Light Lines
       [-1, 1].forEach((dir) => {
         const lightStripCurve = new THREE.CatmullRomCurve3([
-          new THREE.Vector3(dir * 0.045, 0.222, 1.22),
-          new THREE.Vector3(dir * 0.068, 0.230, 1.05),
-          new THREE.Vector3(dir * 0.092, 0.235, 0.85),
+          new THREE.Vector3(dir * 0.024, 0.215, 1.24),
+          new THREE.Vector3(dir * 0.055, 0.225, 1.15),
+          new THREE.Vector3(dir * 0.082, 0.232, 0.95),
           new THREE.Vector3(dir * 0.112, 0.240, 0.48),
           new THREE.Vector3(dir * 0.088, 0.230, 0.22)
         ]);
@@ -1839,67 +1857,94 @@
       droneGroup.add(cruisePropGroup);
 
       // -----------------------------------------------------------------------
-      // [21, 22] NOSE GIMBAL SENSOR MATRIX (Dual Optical + LWIR Lenses)
-      // Flush mounted directly in the front nose cone of the fuselage body (Zero Gap)
+      // [21, 22] UNDERSLUNG VENTRAL GIMBAL SENSOR TURRET (Dual Optical + LWIR Lenses)
+      // Mounted directly under the drone body on the forward belly for 360° ground scanning
       // -----------------------------------------------------------------------
       const cameraTurretGroup = new THREE.Group();
       cameraTurretGroup.userData.compId = 'rgb-camera';
-      cameraTurretGroup.position.set(0, 0.20, 1.23); // Firmly seated inside front nose socket
+      cameraTurretGroup.position.set(0, 0.075, 0.52); // Under the drone fuselage belly
 
-      // Aerodynamic nose socket fairing sleeve that nests deeply into fuselage body (Zero Gap)
-      const fairingCuff = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.052, 0.065, 0.07, 28).rotateX(Math.PI / 2),
-        droneOrangeMat
-      );
-      fairingCuff.position.z = -0.025; // Nests from z = 1.16 to 1.23 inside the fuselage nose
-      fairingCuff.userData.compId = 'rgb-camera';
-      cameraTurretGroup.add(fairingCuff);
+      // Aerodynamic Ventral Mounting Pylon Base flush against underbelly skin
+      const pylonGeom = new THREE.CylinderGeometry(0.048, 0.062, 0.038, 24);
+      pylonGeom.scale(0.85, 1.0, 1.45);
+      const pylonBase = new THREE.Mesh(pylonGeom, droneOrangeMat);
+      pylonBase.position.set(0, 0.024, 0);
+      pylonBase.userData.compId = 'rgb-camera';
+      cameraTurretGroup.add(pylonBase);
 
-      // Upper white aerodynamic visor shroud seamlessly matching top canopy
-      const visorHood = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.050, 0.062, 0.05, 24, 1, false, 0, Math.PI).rotateX(Math.PI / 2).rotateZ(Math.PI / 2),
-        panelWhiteMat
-      );
-      visorHood.position.set(0, 0.022, -0.02);
-      visorHood.userData.compId = 'rgb-camera';
-      cameraTurretGroup.add(visorHood);
+      // CNC Pan/Tilt Turret Collar
+      const collarGeom = new THREE.CylinderGeometry(0.046, 0.046, 0.012, 28);
+      const pylonCollar = new THREE.Mesh(collarGeom, metalGunmetalMat);
+      pylonCollar.position.set(0, 0.008, 0);
+      pylonCollar.userData.compId = 'rgb-camera';
+      cameraTurretGroup.add(pylonCollar);
 
-      // Forward-Facing Cylindrical CNC Bezel Housing sitting flush at nose socket
-      const camHousing = new THREE.Mesh(new THREE.CylinderGeometry(0.048, 0.052, 0.035, 28).rotateX(Math.PI / 2), metalAlumMat);
-      camHousing.position.z = 0.015;
-      camHousing.userData.compId = 'rgb-camera';
-      cameraTurretGroup.add(camHousing);
+      // Gimbal Sensor Sphere Housing (underslung 2-axis gimbal ball)
+      const gimbalHead = new THREE.Group();
+      gimbalHead.position.set(0, -0.015, 0.012);
+      gimbalHead.rotation.x = -0.35; // Tilted forward & down for wide ground surveillance
+      gimbalHead.userData.compId = 'rgb-camera';
 
-      // Anti-Reflective Optical Ring
-      const camRing = new THREE.Mesh(new THREE.TorusGeometry(0.046, 0.0035, 12, 28), chromeSilverMat);
-      camRing.position.z = 0.032;
-      camRing.userData.compId = 'rgb-camera';
-      cameraTurretGroup.add(camRing);
+      // Smooth Spherical Sensor Ball
+      const ballGeom = new THREE.SphereGeometry(0.054, 32, 24);
+      const ballMesh = new THREE.Mesh(ballGeom, metalGunmetalMat);
+      ballMesh.userData.compId = 'rgb-camera';
+      gimbalHead.add(ballMesh);
 
-      // [21] Primary 4K Optical Camera Lens
+      // Front Optical Face Shield Bezel
+      const faceBezelGeom = new THREE.CylinderGeometry(0.044, 0.046, 0.012, 28).rotateX(Math.PI / 2);
+      const faceBezel = new THREE.Mesh(faceBezelGeom, metalAlumMat);
+      faceBezel.position.set(0, 0, 0.048);
+      faceBezel.userData.compId = 'rgb-camera';
+      gimbalHead.add(faceBezel);
+
+      // Dual-Lens Outer Trim Ring
+      const outerRing = new THREE.Mesh(new THREE.TorusGeometry(0.044, 0.003, 12, 28), chromeSilverMat);
+      outerRing.position.set(0, 0, 0.054);
+      outerRing.userData.compId = 'rgb-camera';
+      gimbalHead.add(outerRing);
+
+      // [21] Primary 4K Optical RGB Camera (Left aperture)
       const rgbGroup = new THREE.Group();
       rgbGroup.userData.compId = 'rgb-camera';
-      rgbGroup.position.set(0, 0, 0.035);
+      rgbGroup.position.set(-0.018, 0, 0.052);
+
+      const rgbBezel = new THREE.Mesh(new THREE.TorusGeometry(0.018, 0.003, 12, 24), chromeSilverMat);
+      rgbBezel.userData.compId = 'rgb-camera';
+      rgbGroup.add(rgbBezel);
+
       const rgbLens = new THREE.Mesh(
-        new THREE.SphereGeometry(0.032, 24, 24, 0, Math.PI * 2, 0, Math.PI / 2).rotateX(Math.PI / 2),
+        new THREE.SphereGeometry(0.016, 20, 20, 0, Math.PI * 2, 0, Math.PI / 2).rotateX(Math.PI / 2),
         lensGlassMat
       );
       rgbLens.userData.compId = 'rgb-camera';
       rgbGroup.add(rgbLens);
-      cameraTurretGroup.add(rgbGroup);
+      gimbalHead.add(rgbGroup);
 
-      // [22] 256×192 LWIR Thermal Camera Aperture
+      // [22] 256×192 LWIR Radiometric Thermal Camera (Right aperture)
       const thermalGroup = new THREE.Group();
       thermalGroup.userData.compId = 'thermal-camera';
-      thermalGroup.position.set(0.028, 0.014, 0.035);
+      thermalGroup.position.set(0.018, 0, 0.052);
+
+      const thermalBezel = new THREE.Mesh(new THREE.TorusGeometry(0.014, 0.0025, 12, 24), metalGunmetalMat);
+      thermalBezel.userData.compId = 'thermal-camera';
+      thermalGroup.add(thermalBezel);
+
       const thermalLens = new THREE.Mesh(
-        new THREE.SphereGeometry(0.012, 16, 16, 0, Math.PI * 2, 0, Math.PI / 2).rotateX(Math.PI / 2),
+        new THREE.SphereGeometry(0.013, 18, 18, 0, Math.PI * 2, 0, Math.PI / 2).rotateX(Math.PI / 2),
         lensGlassMat
       );
       thermalLens.userData.compId = 'thermal-camera';
       thermalGroup.add(thermalLens);
-      cameraTurretGroup.add(thermalGroup);
+      gimbalHead.add(thermalGroup);
 
+      // Center Laser Rangefinder / Telemetry Sensor
+      const lrfMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.004, 0.004, 0.008, 16).rotateX(Math.PI / 2), accentWhiteMat);
+      lrfMesh.position.set(0, 0.018, 0.053);
+      lrfMesh.userData.compId = 'rgb-camera';
+      gimbalHead.add(lrfMesh);
+
+      cameraTurretGroup.add(gimbalHead);
       droneGroup.add(cameraTurretGroup);
 
       // -----------------------------------------------------------------------
@@ -2111,7 +2156,7 @@
       sCtx.strokeRect(12, 12, 488, 232);
       sCtx.fillStyle = '#00d2ff';
       sCtx.font = 'bold 24px "JetBrains Mono", monospace';
-      sCtx.fillText('RESQNET GROUND LORA GATEWAY', 30, 48);
+      sCtx.fillText('SILENTRESQ GROUND LORA GATEWAY', 30, 48);
       sCtx.fillStyle = '#38bdf8';
       sCtx.font = '16px "JetBrains Mono", monospace';
       sCtx.fillText('● SYSTEM STATUS: ONLINE // CARRIER LOCKED', 30, 85);
@@ -2201,7 +2246,7 @@
         { object: cruiseMotorGroup, initialPos: cruiseMotorGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0, -0.45) },
         { object: cruiseEscGroup, initialPos: cruiseEscGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0, -0.25) },
         { object: cruisePropGroup, initialPos: cruisePropGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0, -0.75) },
-        { object: cameraTurretGroup, initialPos: cameraTurretGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0, 0.55) },
+        { object: cameraTurretGroup, initialPos: cameraTurretGroup.position.clone(), explodedOffset: new THREE.Vector3(0, -0.45, 0.15) },
         { object: jetsonGroup, initialPos: jetsonGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0.65, 0) },
         { object: fcGroup, initialPos: fcGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0.5, 0) },
         { object: baroGroup, initialPos: baroGroup.position.clone(), explodedOffset: new THREE.Vector3(0, 0.5, 0) },

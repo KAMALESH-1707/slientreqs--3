@@ -133,7 +133,7 @@ function createGroundStationScreen(): THREE.CanvasTexture {
 
   ctx.fillStyle = '#00e5ff';
   ctx.font = 'bold 22px "JetBrains Mono", monospace';
-  ctx.fillText('RESQNET GROUND LORA GATEWAY', 25, 42);
+  ctx.fillText('SILENTRESQ GROUND LORA GATEWAY', 25, 42);
 
   ctx.font = '14px "JetBrains Mono", monospace';
   ctx.fillStyle = '#30d158';
@@ -621,11 +621,11 @@ export function buildDroneModel(): DroneObjectReferences {
 
   // ==========================================
   // [21] RGB CAMERA & [22] 256×192 LWIR THERMAL CAMERA
-  // Smooth spherical nose turret beneath nose with dual dark-glass lenses reflecting soft amber-orange light
+  // Smooth spherical ventral turret mounted under the drone with dual dark-glass lenses reflecting soft amber-orange light
   // ==========================================
   const cameraTurretGroup = new THREE.Group();
   cameraTurretGroup.name = 'CAMERA_TURRET_MODULE';
-  cameraTurretGroup.position.set(0, 0.06, 0.98);
+  cameraTurretGroup.position.set(0, -0.06, 0.52);
 
   // 2-Axis Gimbal Bracket (tactical black)
   const gimbalBracketGeom = new THREE.CylinderGeometry(0.065, 0.065, 0.04, 16);
@@ -691,8 +691,8 @@ export function buildDroneModel(): DroneObjectReferences {
   cameraTurretGroup.add(thermalGroup);
   componentsMap.set('thermal-camera', thermalGroup);
 
-  // Exploded View for Nose Turret: slides forward along Z-axis (+0.55 Z)
-  registerExploded(cameraTurretGroup, [0, 0, 0.55]);
+  // Exploded View for Ventral Turret: slides downward away from under the drone
+  registerExploded(cameraTurretGroup, [0, -0.45, 0.15]);
   droneRoot.add(cameraTurretGroup);
 
   // ==========================================

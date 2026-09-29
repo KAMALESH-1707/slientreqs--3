@@ -68,7 +68,7 @@ export default function App() {
                 INTERACTIVE 3D CAD TWIN // 360° INSPECTION
               </span>
               <h2 className="text-xl sm:text-2xl font-bold uppercase text-white tracking-tight">
-                RESQNET RQ-01 DIGITAL TWIN
+                SILENTRESQ RQ-01 DIGITAL TWIN
               </h2>
             </div>
             <div className="flex items-center gap-2 text-xs font-mono text-gray-400">
@@ -124,7 +124,7 @@ export default function App() {
           <RescueWorkflow />
         </section>
 
-        {/* How RESQNET Sends Visual Evidence (LoRa Image Packetization) */}
+        {/* How SILENTRESQ Sends Visual Evidence (LoRa Image Packetization) */}
         <section className="pt-4">
           <ImageTransmission />
         </section>
@@ -145,7 +145,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
             <div className="text-base font-bold text-white tracking-wider">
-              RESQNET RQ-01 // AI POWERED AUTONOMOUS DISASTER RESCUE DRONE
+              SILENTRESQ RQ-01 // AI POWERED AUTONOMOUS DISASTER RESCUE DRONE
             </div>
             <div className="text-gray-400">
               Locked Aerospace Architecture • NVIDIA Jetson Nano • Semtech SX1262 LoRa • FLIR Lepton 3.5
@@ -160,7 +160,7 @@ export default function App() {
               <span className="text-[#FF6A00] font-bold">OFFLINE CORE: </span> 100% Client-Side Executable
             </div>
             <div className="text-[11px] text-gray-500">
-              © {new Date().getFullYear()} RESQNET Project. All design rights reserved.
+              © {new Date().getFullYear()} SILENTRESQ Project. All design rights reserved.
             </div>
           </div>
         </div>

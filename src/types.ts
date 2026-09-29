@@ -6,7 +6,7 @@ export interface DroneComponentData {
   category: 'Structure' | 'Sensors & Vision' | 'Computing & AI' | 'Avionics & Nav' | 'Communication' | 'Propulsion' | 'Power & Signaling';
   role: string;
   whatItDoes: string;
-  inResqnet: string;
+  inSilentresq: string;
   inputData: string;
   outputData: string;
   whyItMatters: string;

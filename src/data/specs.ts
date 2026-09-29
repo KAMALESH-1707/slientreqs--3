@@ -28,7 +28,7 @@ export const SPEC_CATEGORIES: SpecCategory[] = [
     items: [
       { label: 'AI Supercomputing Core', value: 'NVIDIA Jetson Nano (472 GFLOPS)', highlight: true },
       { label: 'AI Detection Model', value: 'YOLO11n-based lightweight quantized edge neural network' },
-      { label: 'Dual-Lens Nose Turret', value: 'Smooth Spherical Gimbal with Soft Amber-Orange Glass Reflections', highlight: true },
+      { label: 'Dual-Lens Ventral Turret', value: 'Underslung Spherical Gimbal with Dual Optical + Thermal Lenses under the Drone Body', highlight: true },
       { label: 'RGB Day Vision', value: 'Ultra-HD Optical Visual Imagery Sensor' },
       { label: 'Thermal Infrared Vision', value: '256×192 LWIR Radiometric Heat Signature Sensor', highlight: true },
       { label: 'Sensor Fusion', value: 'Hardware-synchronized Optical + Thermal Bounding Box Fusion' }

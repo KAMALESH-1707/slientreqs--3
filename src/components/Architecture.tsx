@@ -184,7 +184,7 @@ export const Architecture: React.FC<ArchitectureProps> = ({ onSelectComponentByI
             </span>
           </div>
           <h2 className="text-2xl lg:text-3xl font-bold uppercase tracking-tight text-white">
-            RESQNET SYSTEM ARCHITECTURE
+            SILENTRESQ SYSTEM ARCHITECTURE
           </h2>
           <p className="text-xs sm:text-sm text-gray-400 mt-1 max-w-2xl font-sans">
             Complete data, sensing, and edge-intelligence pipeline. Click any architectural node to inspect its operational role and focus the 3D digital twin.

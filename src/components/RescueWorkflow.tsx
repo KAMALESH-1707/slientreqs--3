@@ -142,7 +142,7 @@ export const RescueWorkflow: React.FC = () => {
         <ShieldCheck className="w-5 h-5 text-[#FF6A00] shrink-0 mt-0.5" />
         <div className="text-xs font-mono text-gray-200">
           <span className="text-[#FF6A00] font-bold uppercase tracking-wider">AEROSPACE PROTOCOL DISCLAIMER: </span>
-          RESQNET RQ-01 generates an <strong className="text-white font-semibold">"AI-assisted lower-risk approach recommendation"</strong> based on real-time sensory data. The system never claims 100% hazard immunity; human incident commanders retain final tactical authority.
+          SILENTRESQ RQ-01 generates an <strong className="text-white font-semibold">"AI-assisted lower-risk approach recommendation"</strong> based on real-time sensory data. The system never claims 100% hazard immunity; human incident commanders retain final tactical authority.
         </div>
       </div>
 

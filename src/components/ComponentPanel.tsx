@@ -126,14 +126,14 @@ export const ComponentPanel: React.FC<ComponentPanelProps> = ({
             </p>
           </div>
 
-          {/* IN RESQNET (Pipeline flow) */}
+          {/* IN SILENTRESQ (Pipeline flow) */}
           <div className="bg-white/[0.02] border border-white/10 rounded-md p-3.5">
             <div className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff]" />
-              IN RESQNET PIPELINE
+              IN SILENTRESQ PIPELINE
             </div>
             <div className="bg-black/50 border border-white/10 rounded-sm p-2.5 font-mono text-xs text-[#00e5ff] flex items-center flex-wrap gap-1 leading-normal">
-              {component.inResqnet.split('→').map((step, idx, arr) => (
+              {component.inSilentresq.split('→').map((step, idx, arr) => (
                 <React.Fragment key={idx}>
                   <span className="bg-white/5 px-2 py-0.5 rounded-sm border border-white/10 text-gray-200 font-medium text-[11px]">
                     {step.trim()}

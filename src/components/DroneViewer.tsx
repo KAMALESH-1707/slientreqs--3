@@ -597,7 +597,7 @@ export const DroneViewer: React.FC<DroneViewerProps> = ({
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#00e5ff] animate-pulse" />
           <span className="font-mono text-[10px] tracking-widest text-[#00e5ff] uppercase font-bold">
-            RESQNET HYBRID VTOL // RQ-01
+            SILENTRESQ HYBRID VTOL // RQ-01
           </span>
           <span className="bg-white/5 text-gray-400 text-[9px] px-2 py-0.5 rounded-sm border border-white/10 font-mono">
             CAD TWIN 3.0

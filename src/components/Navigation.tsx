@@ -17,7 +17,7 @@ export const Navigation: React.FC<NavigationProps> = ({ onScrollTo, onExploreDro
           </div>
           <div>
             <h1 className="text-[#FF6A00] font-bold text-xl sm:text-2xl tracking-tighter leading-none">
-              RESQNET <span className="text-white font-light">RQ-01</span>
+              SILENTRESQ <span className="text-white font-light">RQ-01</span>
             </h1>
             <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mt-1 font-mono">
               AI Powered Autonomous Disaster Rescue Drone

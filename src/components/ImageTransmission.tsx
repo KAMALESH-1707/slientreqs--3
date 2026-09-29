@@ -69,10 +69,10 @@ export const ImageTransmission: React.FC = () => {
             </span>
           </div>
           <h2 className="text-2xl lg:text-3xl font-bold uppercase tracking-tight text-white">
-            HOW RESQNET SENDS VISUAL EVIDENCE
+            HOW SILENTRESQ SENDS VISUAL EVIDENCE
           </h2>
           <p className="text-xs sm:text-sm text-gray-400 mt-1 max-w-2xl font-sans">
-            LoRa is an ultra-low-bandwidth protocol designed for range, not video streaming. Here is how RESQNET transmits vital photographic evidence without cellular networks.
+            LoRa is an ultra-low-bandwidth protocol designed for range, not video streaming. Here is how SILENTRESQ transmits vital photographic evidence without cellular networks.
           </p>
         </div>
 

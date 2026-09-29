@@ -26,7 +26,7 @@ export const SPEC_CATEGORIES: SpecCategory[] = [
   {
     title: 'Edge AI & Dual Sensing',
     items: [
-      { label: 'AI Supercomputing Core', value: 'NVIDIA Jetson Orin Nano Super 8GB (40 TOPS)', highlight: true },
+      { label: 'AI Supercomputing Core', value: 'NVIDIA Jetson Nano (472 GFLOPS)', highlight: true },
       { label: 'AI Detection Model', value: 'YOLO11n-based lightweight quantized edge neural network' },
       { label: 'Dual-Lens Nose Turret', value: 'Smooth Spherical Gimbal with Soft Amber-Orange Glass Reflections', highlight: true },
       { label: 'RGB Day Vision', value: 'Ultra-HD Optical Visual Imagery Sensor' },
@@ -54,5 +54,5 @@ export const COLOR_SCHEME_SPEC = [
   { part: 'VTOL & Cruise Motors', color: 'Sandblasted Black Anodized', hex: '#121316', desc: 'High-torque brushless outrunners with copper stator accents' },
   { part: 'Propeller Blades', color: 'Glossy Black Carbon', hex: '#0C0C0E', desc: 'Acoustically tuned 2-blade vertical lift and cruise blades' },
   { part: 'Nose Turret Dual Lenses', color: 'Soft Amber-Orange Glass', hex: '#FF8C00', desc: 'Anti-reflective optical coatings reflecting soft amber light' },
-  { part: 'Computing Bay PCB', color: 'Glowing Emerald Green', hex: '#00E676', desc: 'NVIDIA Jetson Orin Nano Super 8GB developer board with subtle glow' }
+  { part: 'Computing Bay PCB', color: 'Glowing Emerald Green', hex: '#00E676', desc: 'NVIDIA Jetson Nano developer board with subtle glow' }
 ];

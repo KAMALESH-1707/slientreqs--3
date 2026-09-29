@@ -64,8 +64,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDrone, onViewArchitecture }
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-7 max-w-4xl relative z-10">
         <div className="bg-[#0a0a0a] border border-white/10 rounded-md p-3.5 border-t-2 border-t-[#76b900]">
           <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Edge AI Supercompute</div>
-          <div className="text-xs font-mono font-bold text-gray-200 mt-1">Jetson Orin Nano Super 8GB</div>
-          <div className="text-[10px] font-mono text-[#76b900] mt-0.5">40 TOPS YOLO11n AI</div>
+          <div className="text-xs font-mono font-bold text-gray-200 mt-1">Jetson Nano</div>
+          <div className="text-[10px] font-mono text-[#76b900] mt-0.5">YOLO11n Edge AI</div>
         </div>
 
         <div className="bg-[#0a0a0a] border border-white/10 rounded-md p-3.5 border-t-2 border-t-[#ff8c00]">

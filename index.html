@@ -934,9 +934,10 @@
       {
         id: 'jetson-orin-nano',
         num: '20',
-        name: 'NVIDIA Jetson Orin Nano Super 8GB',
+        name: 'NVIDIA Jetson Nano',
         qty: 'Qty: 1',
-        role: 'Onboard AI inference, RGB + thermal processing. Ensure this name is used exactly, no standard Jetson Nano.',
+        category: 'AI COMPUTE',
+        role: 'Onboard edge AI inference, computer vision, RGB + thermal sensor fusion for real-time survivor detection.',
         target: [0, 0.28, 0.25],
         cam: [0.26, 0.58, 0.45],
         explodedOffset: [0, 0.65, 0]
@@ -1176,7 +1177,7 @@
       });
 
       // Semi-Transparent Rescue Safety Orange specifically for the Middle Main Drone Fuselage Pod
-      // Provides the sleek translucent look revealing internal avionics (Jetson Orin Nano, battery, flight controller, busbars)
+      // Provides the sleek translucent look revealing internal avionics (Jetson Nano, battery, flight controller, busbars)
       const translucentFuselageOrangeMat = new THREE.MeshPhysicalMaterial({
         color: 0xff4d00,
         map: orangeWeaveMap,
@@ -1902,7 +1903,7 @@
       droneGroup.add(cameraTurretGroup);
 
       // -----------------------------------------------------------------------
-      // [20] INTERNAL COMPUTE BAY: NVIDIA Jetson Orin Nano Super 8GB & Storage
+      // [20] INTERNAL COMPUTE BAY: NVIDIA Jetson Nano & Storage
       // -----------------------------------------------------------------------
       const jetsonGroup = new THREE.Group();
       jetsonGroup.userData.compId = 'jetson-orin-nano';

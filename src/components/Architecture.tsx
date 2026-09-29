@@ -48,8 +48,8 @@ export const Architecture: React.FC<ArchitectureProps> = ({ onSelectComponentByI
     {
       id: 'jetson-orin-nano',
       componentId: 'jetson-orin-nano',
-      name: 'NVIDIA Jetson Orin Nano Super 8GB',
-      tech: '40 TOPS Edge AI Compute Module',
+      name: 'NVIDIA Jetson Nano',
+      tech: 'Edge AI Compute Module',
       desc: 'Central computing brain running fine-tuned models entirely offline without internet/cloud reliance.',
       badge: 'Edge Supercomputing',
       icon: <Cpu className="w-4 h-4 text-[#76b900]" />,

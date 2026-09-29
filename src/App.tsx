@@ -148,7 +148,7 @@ export default function App() {
               RESQNET RQ-01 // AI POWERED AUTONOMOUS DISASTER RESCUE DRONE
             </div>
             <div className="text-gray-400">
-              Locked Aerospace Architecture • NVIDIA Jetson Orin Nano • Semtech SX1262 LoRa • FLIR Lepton 3.5
+              Locked Aerospace Architecture • NVIDIA Jetson Nano • Semtech SX1262 LoRa • FLIR Lepton 3.5
             </div>
             <div className="text-[11px] text-[#FFD400]">
               Built for Smart India Hackathon & University Aerospace Evaluation

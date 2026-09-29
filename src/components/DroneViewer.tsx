@@ -631,7 +631,7 @@ export const DroneViewer: React.FC<DroneViewerProps> = ({
           </div>
           <div className="flex justify-between">
             <span className="text-gray-500 uppercase tracking-wider">AI COMPUTE:</span>
-            <span className="text-[#76b900] font-bold">ORIN SUPER 8GB</span>
+            <span className="text-[#76b900] font-bold">JETSON NANO</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-500 uppercase tracking-wider">DUAL LENS:</span>

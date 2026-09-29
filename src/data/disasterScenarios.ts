@@ -39,7 +39,7 @@ export const DISASTER_SCENARIOS: DisasterScenarioData[] = [
     challenge: 'Gale-force winds, flying debris, and total telecommunication blackout paralyze emergency response coordination.',
     solution: 'Designed to withstand 10 m/s winds with high-torque brushless motors, RQ-01 deploys immediately in the storm aftermath before road clearing begins, using offline edge AI.',
     workflowStep: 'Storm aftermath rapid deploy → Offline Jetson processing → High-wind hover hold → LoRa packet broadcast over severed infrastructure',
-    keySensors: ['Brushless Propulsion', 'Jetson Orin Nano (Offline)', 'LoRa E22 RF', 'IP43 Sealing']
+    keySensors: ['Brushless Propulsion', 'Jetson Nano (Offline)', 'LoRa E22 RF', 'IP43 Sealing']
   },
   {
     id: 'building-collapse',

@@ -46,7 +46,7 @@ export const RescueWorkflow: React.FC = () => {
       step: 4,
       title: 'Edge Sensor Fusion',
       icon: <Cpu className="w-4 h-4 text-[#76b900]" />,
-      desc: 'NVIDIA Jetson Orin Nano geometrically fuses optical pixels with thermal temperature matrices, computing a weighted multi-sensor confidence score.',
+      desc: 'NVIDIA Jetson Nano geometrically fuses optical pixels with thermal temperature matrices, computing a weighted multi-sensor confidence score.',
       tag: 'Offline Jetson AI'
     },
     {

@@ -696,7 +696,7 @@ export function buildDroneModel(): DroneObjectReferences {
   droneRoot.add(cameraTurretGroup);
 
   // ==========================================
-  // [20] NVIDIA JETSON ORIN NANO SUPER 8GB (Internal Computing Bay)
+  // [20] NVIDIA JETSON NANO (Internal Computing Bay)
   // Stylized green developer board inside core fuselage that glows softly
   // ==========================================
   const jetsonGroup = new THREE.Group();
